@@ -21,19 +21,11 @@ namespace bus_depot
  
             var connectionString = "mongodb://localhost:27017";
             const string databaseName = "bus_depot";
-            const string collectionName = "drivers";
+            const string driversCollection = "drivers";
+            const string routesCollection = "routes";
+            const string busesCollection = "buses";
 
-            MongoHelper database = new MongoHelper(connectionString, databaseName);
-
-            var driver = new Driver();
-
-            //Console.Write("Enter guest name: ");
-            driver.Name = "Никита";
-
-            //Console.Write("Enter guest last name: ");
-            driver.LastName = "Парфенов";
-
-            database.InsertDocument(collectionName, driver);
+            MongoTools database = new MongoTools(connectionString, databaseName);
         }
     }
 }

@@ -5,11 +5,11 @@ using System.Collections.Generic;
 
 namespace bus_depot
 {
-    public class MongoHelper
+    public class MongoTools
     {
         private IMongoDatabase db;
 
-        public MongoHelper(string connectionString, string databaseName)
+        public MongoTools(string connectionString, string databaseName)
         {
             //Create new database connection
             var client = new MongoClient(connectionString);
