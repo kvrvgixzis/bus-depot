@@ -12,8 +12,10 @@ namespace bus_depot
 {
     public partial class MainForm : Form
     {
-        public MainForm()
+        MongoTools database;
+        public MainForm(MongoTools database)
         {
+            this.database = database;
             InitializeComponent();
         }
 

@@ -22,15 +22,16 @@ namespace bus_depot
             string login = loginInput.Text;
             string pwd = pwdInput.Text;
             MongoTools database = Program.Login(login, pwd);
-            if (database.isConnect)
+            if (MongoTools.isConnect)
             {
-                MainForm mainForm = new MainForm();
+                MainForm mainForm = new MainForm(database);
                 mainForm.Show();
                 this.Hide();
             }
             else
             {
-                this.Text = "Error";
+                loginBtn.ForeColor = Color.FromName("red");
+                loginBtn.Text = "Invalid Login or Password. Try Again!";
             }
         }
     }

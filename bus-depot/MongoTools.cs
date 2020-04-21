@@ -8,7 +8,7 @@ namespace bus_depot
     public class MongoTools
     {
         private IMongoDatabase db;
-        public bool isConnect = false;
+        public static bool isConnect = false;
 
 
         public MongoTools(string connectionString, string databaseName)

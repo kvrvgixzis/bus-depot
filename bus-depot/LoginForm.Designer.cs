@@ -87,7 +87,7 @@
             this.PwdLabel.TabIndex = 4;
             this.PwdLabel.Text = "Password:";
             // 
-            // Login
+            // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -102,8 +102,9 @@
             this.MaximumSize = new System.Drawing.Size(300, 160);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(300, 160);
-            this.Name = "Login";
+            this.Name = "LoginForm";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.ResumeLayout(false);
             this.PerformLayout();
