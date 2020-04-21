@@ -21,25 +21,15 @@ namespace bus_depot
          */
         [BsonId]
         public ObjectId Id { get; set; }
-
         public string LastName { get; set; }
-
         public string Name { get; set; }
-
         public string Patronymic { get; set; }
-
         public int Grade { get; set; }
-
         public int Experience { get; set; }
-
         public float Salary { get; set; }
-
         public ObjectId BusId { get; set; }
-
         public ObjectId RouteId { get; set; }
-
         public List<string> Schedule { get; set; }
-
         public Driver()
         {
             Id = ObjectId.GenerateNewId();
