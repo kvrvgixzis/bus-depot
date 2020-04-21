@@ -1,5 +1,4 @@
 C:\Users\human\rsvpu\bus-depot\bus-depot\obj\Debug\bus-depot.csprojAssemblyReference.cache
-C:\Users\human\rsvpu\bus-depot\bus-depot\obj\Debug\bus_depot.Form1.resources
 C:\Users\human\rsvpu\bus-depot\bus-depot\obj\Debug\bus_depot.Properties.Resources.resources
 C:\Users\human\rsvpu\bus-depot\bus-depot\obj\Debug\bus-depot.csproj.GenerateResource.cache
 C:\Users\human\rsvpu\bus-depot\bus-depot\obj\Debug\bus-depot.csproj.CoreCompileInputs.cache
@@ -26,3 +25,5 @@ C:\Users\human\rsvpu\bus-depot\bus-depot\bin\Debug\System.Buffers.xml
 C:\Users\human\rsvpu\bus-depot\bus-depot\obj\Debug\bus-depot.csproj.CopyComplete
 C:\Users\human\rsvpu\bus-depot\bus-depot\obj\Debug\bus-depot.exe
 C:\Users\human\rsvpu\bus-depot\bus-depot\obj\Debug\bus-depot.pdb
+C:\Users\human\rsvpu\bus-depot\bus-depot\obj\Debug\bus_depot.LoginForm.resources
+C:\Users\human\rsvpu\bus-depot\bus-depot\obj\Debug\bus_depot.MainForm.resources

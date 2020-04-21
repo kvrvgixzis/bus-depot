@@ -8,12 +8,22 @@ namespace bus_depot
     public class MongoTools
     {
         private IMongoDatabase db;
+        public bool isConnect = false;
+
 
         public MongoTools(string connectionString, string databaseName)
         {
             //Create new database connection
             var client = new MongoClient(connectionString);
             db = client.GetDatabase(databaseName);
+            try
+            {
+                isConnect = db.RunCommandAsync((Command<BsonDocument>)"{ping:1}").Wait(1000);
+            }
+            catch
+            {
+                isConnect = false;
+            }
         }
 
         /// <summary>
@@ -37,7 +47,6 @@ namespace bus_depot
         public List<T> LoadAllDocuments<T>(string collectionName)
         {
             var collection = db.GetCollection<T>(collectionName);
-
             return collection.Find(new BsonDocument()).ToList();
         }
 
@@ -52,7 +61,6 @@ namespace bus_depot
         {
             var collection = db.GetCollection<T>(collectionName);
             var filter = Builders<T>.Filter.Eq("Id", id);
-
             return collection.Find(filter).First();
         }
 
@@ -63,12 +71,12 @@ namespace bus_depot
         /// <param name="collectionName"></param>
         /// <param name="id"></param>
         /// <param name="document"></param>
+        [Obsolete]
         public void UpdateDocument<T>(string collectionName, Guid id, T document)
         {
             var collection = db.GetCollection<T>(collectionName);
-
             var result = collection.ReplaceOne(
-                new BsonDocument("_id", id),
+                new BsonDocument("_id", id), 
                 document,
                 new UpdateOptions { IsUpsert = false });
         }
@@ -80,10 +88,10 @@ namespace bus_depot
         /// <param name="collectionName"></param>
         /// <param name="id"></param>
         /// <param name="document"></param>
+        [Obsolete]
         public void UpsertDocument<T>(string collectionName, Guid id, T document)
         {
             var collection = db.GetCollection<T>(collectionName);
-
             var result = collection.ReplaceOne(
                 new BsonDocument("_id", id),
                 document,
