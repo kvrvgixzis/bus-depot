@@ -1,10 +1,13 @@
 # Курсовая работа РГППУ Парфенов Н.А. ООП 2020г.
 > Вариант 6: Автобусный парк
-Требуется разработать программную систему, предназначенную для диспетчера
-автобусного парка. 
+> Требуется разработать программную систему, предназначенную для диспетчера
+> автобусного парка. 
 
-## База данных
-Такая система должна обеспечивать хранение сведений о:
+**Использовано:**
+- C# using Visual Studio
+- MongoDB using NoSQLBooster
+
+## Модели базы данных MongoDB:
 
 ```csharp
 using System;
@@ -18,16 +21,6 @@ namespace bus_depot
 {
     public partial class Driver
     {
-        /*
-         * id,
-         * ФИО,
-         * класс,
-         * стаж,
-         * оклад (вычисляемое),
-         * автобус (id),
-         * маршрут (id),
-         * график (список дней недели).
-         */
         [BsonId]
         public ObjectId Id { get; set; }
         public string LastName { get; set; }
@@ -48,16 +41,6 @@ namespace bus_depot
 
     public partial class Route
     {
-        /*
-         * id,
-         * номер,
-         * начальный пункт,
-         * конечный пункт,
-         * начало движения,
-         * конец движения,
-         * интервал движения,
-         * протяженность (минуты).
-         */
         [BsonId]
         public ObjectId Id { get; set; }
         public int Number { get; set; }
@@ -75,14 +58,6 @@ namespace bus_depot
 
     public partial class Bus
     {
-        /*
-         * id,
-         * номер,
-         * тип,
-         * вместимость,
-         * водитель (ключ),
-         * исправность.
-         */
         [BsonId]
         public ObjectId Id { get; set; }
         public string Number { get; set; }
