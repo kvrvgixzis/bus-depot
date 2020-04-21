@@ -17,8 +17,8 @@ namespace bus_depot
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+
             // By default for a local MongoDB instance connectionString = "mongodb://localhost:27017"
- 
             var connectionString = "mongodb://localhost:27017";
             const string databaseName = "bus_depot";
             const string driversCollection = "drivers";
