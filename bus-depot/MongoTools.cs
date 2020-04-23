@@ -57,7 +57,7 @@ namespace bus_depot
         /// <param name="collectionName"></param>
         /// <param name="id"></param>
         /// <returns></returns>
-        public T LoadDocumentById<T>(string collectionName, Guid id)
+        public T LoadDocumentById<T>(string collectionName, ObjectId id)
         {
             var collection = db.GetCollection<T>(collectionName);
             var filter = Builders<T>.Filter.Eq("Id", id);
@@ -72,7 +72,7 @@ namespace bus_depot
         /// <param name="id"></param>
         /// <param name="document"></param>
         [Obsolete]
-        public void UpdateDocument<T>(string collectionName, Guid id, T document)
+        public void UpdateDocument<T>(string collectionName, ObjectId id, T document)
         {
             var collection = db.GetCollection<T>(collectionName);
             var result = collection.ReplaceOne(
@@ -89,7 +89,7 @@ namespace bus_depot
         /// <param name="id"></param>
         /// <param name="document"></param>
         [Obsolete]
-        public void UpsertDocument<T>(string collectionName, Guid id, T document)
+        public void UpsertDocument<T>(string collectionName, ObjectId id, T document)
         {
             var collection = db.GetCollection<T>(collectionName);
             var result = collection.ReplaceOne(
@@ -104,7 +104,7 @@ namespace bus_depot
         /// <typeparam name="T"></typeparam>
         /// <param name="collectionName"></param>
         /// <param name="id"></param>
-        public void DeleteDocument<T>(string collectionName, Guid id)
+        public void DeleteDocument<T>(string collectionName, ObjectId id)
         {
             var collection = db.GetCollection<T>(collectionName);
             var filter = Builders<T>.Filter.Eq("Id", id);

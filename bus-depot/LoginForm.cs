@@ -31,7 +31,7 @@ namespace bus_depot
             else
             {
                 loginBtn.ForeColor = Color.FromName("red");
-                loginBtn.Text = "Invalid Login or Password. Try Again!";
+                loginBtn.Text = "Неверный логин или пароль. Попробуйте снова!";
             }
         }
     }
