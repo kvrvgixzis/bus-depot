@@ -54,8 +54,8 @@ namespace bus_depot
         public int Number { get; set; }
         public string StPoint { get; set; }
         public string EndPoint { get; set; }
-        public DateTime StTime { get; set; }
-        public DateTime EndTime { get; set; }
+        public string StTime { get; set; }
+        public string EndTime { get; set; }
         public int Interval { get; set; }
         public int Length { get; set; }
         public Route()

@@ -183,22 +183,15 @@ namespace bus_depot
             {
                 string str_id = Table.SelectedRows[0].Cells[0].Value.ToString();
                 ObjectId id = MongoDB.Bson.ObjectId.Parse(str_id);
-                switch (collectionName)
-                {
-                    case "buses":
-                        database.DeleteDocument<Bus>(collectionName, id);
-                        ShowBuses();
-                        break;
-                    case "routes":
-                        database.DeleteDocument<Route>(collectionName, id);
-                        ShowRoutes();
-                        break;
-                    case "drivers":
-                        database.DeleteDocument<Driver>(collectionName, id);
-                        ShowDrivers();
-                        break;
-                    default:
-                        break;
+                if (collectionName == "buses") {
+                    database.DeleteDocument<Bus>(collectionName, id);
+                    ShowBuses();
+                } else if (collectionName == "routes") {
+                    database.DeleteDocument<Route>(collectionName, id);
+                    ShowRoutes();
+                } else if (collectionName == "drivers") {
+                    database.DeleteDocument<Driver>(collectionName, id);
+                    ShowDrivers();
                 }
                 MessageBox.Show("Элемент удален");
             }
@@ -207,6 +200,21 @@ namespace bus_depot
         private void ReloginBtn_Click(object sender, EventArgs e)
         {
             Application.Restart();
+        }
+
+        private void AddNewElementBtn_Click(object sender, EventArgs e)
+        {
+            if (collectionName == "buses") {
+
+            } else if (collectionName == "routes") {
+                addRoute form = new addRoute(database);
+                form.ShowDialog();
+                ShowRoutes();
+                MessageBox.Show("Маршрут добавлен");
+            }
+            else if (collectionName == "drivers") {
+
+            }
         }
     }
 }
