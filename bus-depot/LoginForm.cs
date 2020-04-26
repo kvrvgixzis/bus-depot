@@ -24,6 +24,9 @@ namespace bus_depot
             MongoTools database = Program.Login(login, pwd);
             if (MongoTools.isConnect)
             {
+                if (login == "admin") {
+                    MongoTools.isAdmin = true;
+                }
                 MainForm mainForm = new MainForm(database);
                 mainForm.Show();
                 this.Hide();

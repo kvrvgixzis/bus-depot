@@ -103,7 +103,7 @@
             this.AddNewElementBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.AddNewElementBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddNewElementBtn.Location = new System.Drawing.Point(10, 151);
+            this.AddNewElementBtn.Location = new System.Drawing.Point(10, 176);
             this.AddNewElementBtn.Name = "AddNewElementBtn";
             this.AddNewElementBtn.Size = new System.Drawing.Size(206, 32);
             this.AddNewElementBtn.TabIndex = 4;

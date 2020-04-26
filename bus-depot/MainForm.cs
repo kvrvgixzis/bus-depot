@@ -144,6 +144,12 @@ namespace bus_depot
         {
             this.database = database;
             InitializeComponent();
+            if (!MongoTools.isAdmin)
+            {
+                AddNewElementBtn.Visible = false;
+                editSelectBtn.Visible = false;
+                deleteSelectedBtn.Visible = false;
+            }
         }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)

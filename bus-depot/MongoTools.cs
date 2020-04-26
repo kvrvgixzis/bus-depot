@@ -9,6 +9,7 @@ namespace bus_depot
     {
         private IMongoDatabase db;
         public static bool isConnect = false;
+        public static bool isAdmin = false;
 
 
         public MongoTools(string connectionString, string databaseName)
