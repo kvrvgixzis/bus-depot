@@ -7,7 +7,7 @@
 - C# using Visual Studio
 - MongoDB using NoSQLBooster
 
-## Модели базы данных MongoDB:
+## Модели базы данных MongoDB | MongoDB Models:
 ### **Водитель** *Driver*
 ```csharp
     public partial class Driver
@@ -67,28 +67,32 @@
     }
 ```
 
-## Приложение
+## Приложение | Application:
 
-### Роли
-- Диспетчер (reader:reader)
-- Директор (admin:admin)
+### Роли:
+- **Диспетчер:**
+    login:pwd: (reader:reader)
+    права доступа: read-only
+- **Диспетчер:**
+    login:pwd: (admin:admin)
+    права доступа: read-write
 
 ### Функции:
-- Корректировка таблиц
-- Добавление новых записей в таблицы
-- Вывод списков по таблицам
-
-**Информация к отображению:**
-
-- Список водителей, работающих на определенном маршруте с указанием графика их работы.
-- Какие автобусы обслуживают данный маршрут.
-- Протяженность маршрутов и их минимальная, и максимальная протяженность.
-- На каком маршруте работает водитель с максимальным стажем.
-- Какова общая протяженность маршрутов, обслуживаемых автопарком.
-- Какие водители не вышли на линию по причине неисправности автобуса. 
-
-**Директор:**
-- добавить водителя,
-- добавить автобус,
-- удалить водителя,
-- удалить автобус.
+**Корректировка таблиц:
+- Добавление записей в коллекцию MongoDB:
+```csharp
+    public void InsertDocument<T>(string collectionName, T document)
+        {
+            var collection = db.GetCollection<T>(collectionName);
+            collection.InsertOne(document);
+        }
+```
+- Удаление записей из коллекции MongoDB:
+```csharp
+    public void DeleteDocument<T>(string collectionName, ObjectId id)
+        {
+            var collection = db.GetCollection<T>(collectionName);
+            var filter = Builders<T>.Filter.Eq("Id", id);
+            collection.DeleteOne(filter);
+        }
+```
