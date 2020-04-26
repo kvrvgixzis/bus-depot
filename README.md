@@ -76,6 +76,15 @@
 - **Диспетчер:**
     login:pwd: (admin:admin)
     права доступа: read-write
+    
+### Интерфейс:
+- Логин:
+![login_screen](images/login_screen.png)
+![wrong_login_screen](images/wrong_login_screen.png)
+- Главный экран:
+![main_screen](images/main_screen.png)
+- Добавление:
+![add_route_screen](images/add_route_screen.png)
 
 ### Функции:
 **Корректировка коллекций:**
