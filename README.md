@@ -78,8 +78,8 @@
     права доступа: read-write
 
 ### Функции:
-**Корректировка таблиц:
-- Добавление записей в коллекцию MongoDB:
+**Корректировка коллекций:**
+- Добавление документов в коллекцию MongoDB:
 ```csharp
     public void InsertDocument<T>(string collectionName, T document)
         {
@@ -87,12 +87,30 @@
             collection.InsertOne(document);
         }
 ```
-- Удаление записей из коллекции MongoDB:
+- Удаление документов из коллекции MongoDB:
 ```csharp
     public void DeleteDocument<T>(string collectionName, ObjectId id)
         {
             var collection = db.GetCollection<T>(collectionName);
             var filter = Builders<T>.Filter.Eq("Id", id);
             collection.DeleteOne(filter);
+        }
+```
+**Чтение данных из коллекций:**
+- Получить все документы коллекции MongoDB:
+```csharp
+    public List<T> LoadAllDocuments<T>(string collectionName)
+        {
+            var collection = db.GetCollection<T>(collectionName);
+            return collection.Find(new BsonDocument()).ToList();
+        }
+```
+- Получить документ из коллекции MongoDB по ObjectId:
+```csharp
+    public T LoadDocumentById<T>(string collectionName, ObjectId id)
+        {
+            var collection = db.GetCollection<T>(collectionName);
+            var filter = Builders<T>.Filter.Eq("Id", id);
+            return collection.Find(filter).First();
         }
 ```
