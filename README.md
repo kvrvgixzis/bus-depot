@@ -8,17 +8,8 @@
 - MongoDB using NoSQLBooster
 
 ## Модели базы данных MongoDB:
-
+### **Водитель** *Driver*
 ```csharp
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using MongoDB.Bson.Serialization.Attributes;
-using MongoDB.Bson;
-
-namespace bus_depot
-{
     public partial class Driver
     {
         [BsonId]
@@ -38,7 +29,9 @@ namespace bus_depot
             Schedule = new List<string>();
         }
     }
-
+```
+### **Маршрут** *Route*
+```csharp
     public partial class Route
     {
         [BsonId]
@@ -55,7 +48,9 @@ namespace bus_depot
             Id = ObjectId.GenerateNewId();
         }
     }
-
+```
+### **Автобус** *Bus*
+```csharp
     public partial class Bus
     {
         [BsonId]
@@ -70,9 +65,6 @@ namespace bus_depot
             Id = ObjectId.GenerateNewId();
         }
     }
-
-
-}
 ```
 
 ## Приложение
