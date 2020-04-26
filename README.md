@@ -73,7 +73,7 @@
 - **Диспетчер:**
     login:pwd: (reader:reader)
     права доступа: read-only
-- **Диспетчер:**
+- **Администратор:**
     login:pwd: (admin:admin)
     права доступа: read-write
     
