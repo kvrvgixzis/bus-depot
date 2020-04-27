@@ -6,8 +6,11 @@
 **Использовано:**
 - C# using Visual Studio
 - MongoDB using NoSQLBooster
+
+**Список задач:**
+
 <details>
-<summary> **Задачи:** </summary>
+<summary> развернуть </summary>
 
 - [x] Установка и настройка MongoDB на Windows 10
 - [x] Создание двух пользователей с разными правами
