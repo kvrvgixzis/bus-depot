@@ -48,30 +48,39 @@ namespace bus_depot
 
         private void addDriverBtn_Click(object sender, EventArgs e)
         {
-            var buses_doc = database.LoadAllDocuments<Bus>("buses");
-            var routes_doc = database.LoadAllDocuments<Route>("routes");
-            var driver = new Driver();
+            if (NameInput.Text.Length != 0 &&
+                LastNameInput.Text.Length != 0)
+            {
+                var buses_doc = database.LoadAllDocuments<Bus>("buses");
+                var routes_doc = database.LoadAllDocuments<Route>("routes");
+                var driver = new Driver();
 
-            driver.Name = NameInput.Text;
-            driver.LastName = LastNameInput.Text;
-            driver.Patronymic = PatronymicInput.Text;
-            driver.Grade = GradeInput.SelectedIndex + 1;
-            driver.Experience = Convert.ToInt32(ExpInput.Text);
+                driver.Name = NameInput.Text;
+                driver.LastName = LastNameInput.Text;
+                driver.Patronymic = PatronymicInput.Text;
+                driver.Grade = GradeInput.SelectedIndex + 1;
+                driver.Experience = Convert.ToInt32(ExpInput.Text);
 
-            if (MonCheck.Checked) driver.Schedule.Add("Пн");
-            if (TuesCheck.Checked) driver.Schedule.Add("Вт");
-            if (WedCheck.Checked) driver.Schedule.Add("Ср");
-            if (ThursCheck.Checked) driver.Schedule.Add("Чт");
-            if (FriCheck.Checked) driver.Schedule.Add("Пт");
-            if (SatCheck.Checked) driver.Schedule.Add("Сб");
-            if (SunCheck.Checked) driver.Schedule.Add("Вс");
+                if (MonCheck.Checked) driver.Schedule.Add("Пн");
+                if (TuesCheck.Checked) driver.Schedule.Add("Вт");
+                if (WedCheck.Checked) driver.Schedule.Add("Ср");
+                if (ThursCheck.Checked) driver.Schedule.Add("Чт");
+                if (FriCheck.Checked) driver.Schedule.Add("Пт");
+                if (SatCheck.Checked) driver.Schedule.Add("Сб");
+                if (SunCheck.Checked) driver.Schedule.Add("Вс");
 
-            driver.Salary = (2000 + 100 * driver.Experience) / driver.Grade * driver.Schedule.Count * 4;
-            driver.BusId = buses_doc[BusInput.SelectedIndex].Id;
-            driver.RouteId = routes_doc[RouteInput.SelectedIndex].Id;
+                driver.Salary = (2000 + 100 * driver.Experience) / driver.Grade * driver.Schedule.Count * 4;
+                driver.BusId = buses_doc[BusInput.SelectedIndex].Id;
+                driver.RouteId = routes_doc[RouteInput.SelectedIndex].Id;
 
-            database.InsertDocument<Driver>("drivers", driver);
-            this.Close();
+                database.InsertDocument<Driver>("drivers", driver);
+                this.Close();
+            } 
+            else
+            {
+                addDriverBtn.ForeColor = Color.FromName("red");
+                addDriverBtn.Text = "Заполните обязательные поля и попробуйте снова!";
+            }
         }
     }
 }

@@ -91,6 +91,7 @@
             // ExpInput
             // 
             this.ExpInput.Location = new System.Drawing.Point(114, 123);
+            this.ExpInput.Mask = "00";
             this.ExpInput.Name = "ExpInput";
             this.ExpInput.Size = new System.Drawing.Size(305, 22);
             this.ExpInput.TabIndex = 4;
@@ -152,9 +153,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(12, 126);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(37, 13);
+            this.label5.Size = new System.Drawing.Size(65, 13);
             this.label5.TabIndex = 12;
-            this.label5.Text = "Стаж:";
+            this.label5.Text = "Стаж: [лет]";
             // 
             // label7
             // 
