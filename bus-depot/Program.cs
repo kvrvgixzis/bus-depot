@@ -10,7 +10,7 @@ namespace bus_depot
     {
         static public MongoTools Login(string login, string pwd)
         {
-            var connectionString = $"mongodb://{login}:{pwd}@localhost:27017/?authSource=bus_depot";
+            var connectionString = $"mongodb://{login}:{pwd}@94.230.138.242:49563/?authSource=bus_depot";
             const string databaseName = "bus_depot";
             MongoTools database = new MongoTools(connectionString, databaseName);
             return database;
