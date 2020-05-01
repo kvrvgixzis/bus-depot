@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace bus_depot
 {
-    public partial class addRoute : Form
+    public partial class AddRoute : Form
     {
         MongoTools database;
-        public addRoute(MongoTools database)
+        public AddRoute(MongoTools database)
         {
             this.database = database;
             InitializeComponent();

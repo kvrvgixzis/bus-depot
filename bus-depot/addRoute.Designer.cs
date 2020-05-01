@@ -1,6 +1,6 @@
 ﻿namespace bus_depot
 {
-    partial class addRoute
+    partial class AddRoute
     {
         /// <summary>
         /// Required designer variable.

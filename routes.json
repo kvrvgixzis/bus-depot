@@ -1,0 +1,50 @@
+{
+	"_id" : ObjectId("5ea473dd717dd71d94275529"),
+	"EndPoint" : "Завод",
+	"EndTime" : "22:00",
+	"Interval" : NumberInt(15),
+	"Length" : NumberInt(840),
+	"Number" : NumberInt(1),
+	"StPoint" : "Вокзал",
+	"StTime" : "08:00"
+},
+{
+	"_id" : ObjectId("5ea47430717dd72c489d4f89"),
+	"EndPoint" : "Кирпичный завод",
+	"EndTime" : "22:00",
+	"Interval" : NumberInt(15),
+	"Length" : NumberInt(960),
+	"Number" : NumberInt(53),
+	"StPoint" : "Ползунова",
+	"StTime" : "06:00"
+},
+{
+	"_id" : ObjectId("5ea474ae717dd706744f35f1"),
+	"EndPoint" : "Буланаш",
+	"EndTime" : "23:00",
+	"Interval" : NumberInt(25),
+	"Length" : NumberInt(1020),
+	"Number" : NumberInt(111),
+	"StPoint" : "Вокзал",
+	"StTime" : "06:00"
+},
+{
+	"_id" : ObjectId("5ea47826717dd71ce8595806"),
+	"EndPoint" : "ТЦ \"МЕГА\"",
+	"EndTime" : "20:00",
+	"Interval" : NumberInt(25),
+	"Length" : NumberInt(840),
+	"Number" : NumberInt(25),
+	"StPoint" : "Технопарк",
+	"StTime" : "06:00"
+},
+{
+	"_id" : ObjectId("5eabe5a3717dd70c24094b4a"),
+	"EndPoint" : "Городской суд",
+	"EndTime" : "20:00",
+	"Interval" : NumberInt(15),
+	"Length" : NumberInt(660),
+	"Number" : NumberInt(123),
+	"StPoint" : "Больница",
+	"StTime" : "09:00"
+},

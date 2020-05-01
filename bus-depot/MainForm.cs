@@ -213,7 +213,7 @@ namespace bus_depot
             if (collectionName == "buses") {
 
             } else if (collectionName == "routes") {
-                addRoute form = new addRoute(database);
+                AddRoute form = new AddRoute(database);
                 form.ShowDialog();
                 ShowRoutes();
                 MessageBox.Show("Маршрут добавлен");
