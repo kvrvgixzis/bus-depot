@@ -68,7 +68,7 @@ namespace bus_depot
 
             var documents = database.LoadAllDocuments<Bus>("buses");
 
-            Table.ColumnCount = 6;
+            Table.ColumnCount = 5;
 
             Table.Columns[0].Name = "ID";
             Table.Columns[0].Visible = false;
@@ -76,8 +76,8 @@ namespace bus_depot
             Table.Columns[1].Name = "Номер";
             Table.Columns[2].Name = "Тип";
             Table.Columns[3].Name = "Мест";
-            Table.Columns[4].Name = "Водитель";
-            Table.Columns[5].Name = "Исправность";
+            //Table.Columns[4].Name = "Водитель";
+            Table.Columns[4].Name = "Исправность";
 
             foreach (var doc in documents)
             {
@@ -86,10 +86,10 @@ namespace bus_depot
                 string number = doc.Number;
                 string type = doc.Type;
                 string capacity = Convert.ToString(doc.Сapacity);
-                string driver = (Convert.ToString(doc.DriverId) == "000000000000000000000000") ? "-" : Convert.ToString(doc.DriverId);
+                //string driver = (Convert.ToString(doc.DriverId) == "000000000000000000000000") ? "-" : Convert.ToString(doc.DriverId);
                 string isWorking = Convert.ToString(doc.IsWorking);
 
-                string[] row = { ID, number, type, capacity, driver, isWorking };
+                string[] row = { ID, number, type, capacity, isWorking };
 
                 Table.Rows.Add(row);
             }
@@ -216,10 +216,13 @@ namespace bus_depot
                 AddRoute form = new AddRoute(database);
                 form.ShowDialog();
                 ShowRoutes();
-                MessageBox.Show("Маршрут добавлен");
+                //MessageBox.Show("Маршрут добавлен");
             }
             else if (collectionName == "drivers") {
-
+                AddDriver form = new AddDriver(database);
+                form.ShowDialog();
+                ShowDrivers();
+                //MessageBox.Show("Водитель добавлен");
             }
         }
     }

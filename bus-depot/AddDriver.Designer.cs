@@ -28,100 +28,88 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox4 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox5 = new System.Windows.Forms.MaskedTextBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.GradeInput = new System.Windows.Forms.ComboBox();
+            this.LastNameInput = new System.Windows.Forms.MaskedTextBox();
+            this.NameInput = new System.Windows.Forms.MaskedTextBox();
+            this.PatronymicInput = new System.Windows.Forms.MaskedTextBox();
+            this.ExpInput = new System.Windows.Forms.MaskedTextBox();
+            this.BusInput = new System.Windows.Forms.ComboBox();
+            this.RouteInput = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
+            this.MonCheck = new System.Windows.Forms.CheckBox();
+            this.TuesCheck = new System.Windows.Forms.CheckBox();
+            this.WedCheck = new System.Windows.Forms.CheckBox();
+            this.ThursCheck = new System.Windows.Forms.CheckBox();
+            this.FriCheck = new System.Windows.Forms.CheckBox();
+            this.SatCheck = new System.Windows.Forms.CheckBox();
+            this.SunCheck = new System.Windows.Forms.CheckBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.addDriverBtn = new System.Windows.Forms.Button();
+            this.closeBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // GradeInput
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Пн",
-            "Вт",
-            "Ср",
-            "Чт",
-            "Пт",
-            "Сб",
-            "Вс"});
-            this.comboBox1.Location = new System.Drawing.Point(114, 96);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(305, 21);
-            this.comboBox1.TabIndex = 0;
+            this.GradeInput.FormattingEnabled = true;
+            this.GradeInput.Items.AddRange(new object[] {
+            "1 класс",
+            "2 класс",
+            "3 класс"});
+            this.GradeInput.Location = new System.Drawing.Point(114, 96);
+            this.GradeInput.Name = "GradeInput";
+            this.GradeInput.Size = new System.Drawing.Size(305, 21);
+            this.GradeInput.Sorted = true;
+            this.GradeInput.TabIndex = 0;
             // 
-            // maskedTextBox1
+            // LastNameInput
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(114, 12);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(305, 22);
-            this.maskedTextBox1.TabIndex = 1;
+            this.LastNameInput.Location = new System.Drawing.Point(114, 12);
+            this.LastNameInput.Name = "LastNameInput";
+            this.LastNameInput.Size = new System.Drawing.Size(305, 22);
+            this.LastNameInput.TabIndex = 1;
             // 
-            // maskedTextBox2
+            // NameInput
             // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(114, 40);
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(305, 22);
-            this.maskedTextBox2.TabIndex = 2;
+            this.NameInput.Location = new System.Drawing.Point(114, 40);
+            this.NameInput.Name = "NameInput";
+            this.NameInput.Size = new System.Drawing.Size(305, 22);
+            this.NameInput.TabIndex = 2;
             // 
-            // maskedTextBox3
+            // PatronymicInput
             // 
-            this.maskedTextBox3.Location = new System.Drawing.Point(114, 68);
-            this.maskedTextBox3.Name = "maskedTextBox3";
-            this.maskedTextBox3.Size = new System.Drawing.Size(305, 22);
-            this.maskedTextBox3.TabIndex = 3;
+            this.PatronymicInput.Location = new System.Drawing.Point(114, 68);
+            this.PatronymicInput.Name = "PatronymicInput";
+            this.PatronymicInput.Size = new System.Drawing.Size(305, 22);
+            this.PatronymicInput.TabIndex = 3;
             // 
-            // maskedTextBox4
+            // ExpInput
             // 
-            this.maskedTextBox4.Location = new System.Drawing.Point(114, 123);
-            this.maskedTextBox4.Name = "maskedTextBox4";
-            this.maskedTextBox4.Size = new System.Drawing.Size(305, 22);
-            this.maskedTextBox4.TabIndex = 4;
+            this.ExpInput.Location = new System.Drawing.Point(114, 123);
+            this.ExpInput.Name = "ExpInput";
+            this.ExpInput.Size = new System.Drawing.Size(305, 22);
+            this.ExpInput.TabIndex = 4;
             // 
-            // maskedTextBox5
+            // BusInput
             // 
-            this.maskedTextBox5.Location = new System.Drawing.Point(114, 151);
-            this.maskedTextBox5.Name = "maskedTextBox5";
-            this.maskedTextBox5.Size = new System.Drawing.Size(305, 22);
-            this.maskedTextBox5.TabIndex = 5;
+            this.BusInput.FormattingEnabled = true;
+            this.BusInput.Location = new System.Drawing.Point(114, 151);
+            this.BusInput.Name = "BusInput";
+            this.BusInput.Size = new System.Drawing.Size(305, 21);
+            this.BusInput.TabIndex = 6;
             // 
-            // comboBox2
+            // RouteInput
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(114, 179);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(305, 21);
-            this.comboBox2.TabIndex = 6;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(114, 206);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(305, 21);
-            this.comboBox3.TabIndex = 7;
+            this.RouteInput.FormattingEnabled = true;
+            this.RouteInput.Location = new System.Drawing.Point(114, 178);
+            this.RouteInput.Name = "RouteInput";
+            this.RouteInput.Size = new System.Drawing.Size(305, 21);
+            this.RouteInput.TabIndex = 7;
             // 
             // label1
             // 
@@ -168,19 +156,10 @@
             this.label5.TabIndex = 12;
             this.label5.Text = "Стаж:";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 154);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(59, 13);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Зарплата:";
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 182);
+            this.label7.Location = new System.Drawing.Point(12, 154);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 13);
             this.label7.TabIndex = 14;
@@ -189,110 +168,112 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 209);
+            this.label8.Location = new System.Drawing.Point(12, 181);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(60, 13);
             this.label8.TabIndex = 15;
             this.label8.Text = "Маршрут:";
             // 
-            // checkBox1
+            // MonCheck
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(114, 234);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(41, 17);
-            this.checkBox1.TabIndex = 16;
-            this.checkBox1.Text = "Пн";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.MonCheck.AutoSize = true;
+            this.MonCheck.Location = new System.Drawing.Point(114, 206);
+            this.MonCheck.Name = "MonCheck";
+            this.MonCheck.Size = new System.Drawing.Size(41, 17);
+            this.MonCheck.TabIndex = 16;
+            this.MonCheck.Text = "Пн";
+            this.MonCheck.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // TuesCheck
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(160, 234);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(38, 17);
-            this.checkBox2.TabIndex = 17;
-            this.checkBox2.Text = "Вт";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.TuesCheck.AutoSize = true;
+            this.TuesCheck.Location = new System.Drawing.Point(160, 206);
+            this.TuesCheck.Name = "TuesCheck";
+            this.TuesCheck.Size = new System.Drawing.Size(38, 17);
+            this.TuesCheck.TabIndex = 17;
+            this.TuesCheck.Text = "Вт";
+            this.TuesCheck.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // WedCheck
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(203, 234);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(40, 17);
-            this.checkBox3.TabIndex = 18;
-            this.checkBox3.Text = "Ср";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.WedCheck.AutoSize = true;
+            this.WedCheck.Location = new System.Drawing.Point(203, 206);
+            this.WedCheck.Name = "WedCheck";
+            this.WedCheck.Size = new System.Drawing.Size(40, 17);
+            this.WedCheck.TabIndex = 18;
+            this.WedCheck.Text = "Ср";
+            this.WedCheck.UseVisualStyleBackColor = true;
             // 
-            // checkBox4
+            // ThursCheck
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(248, 234);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(39, 17);
-            this.checkBox4.TabIndex = 19;
-            this.checkBox4.Text = "Чт";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.ThursCheck.AutoSize = true;
+            this.ThursCheck.Location = new System.Drawing.Point(248, 206);
+            this.ThursCheck.Name = "ThursCheck";
+            this.ThursCheck.Size = new System.Drawing.Size(39, 17);
+            this.ThursCheck.TabIndex = 19;
+            this.ThursCheck.Text = "Чт";
+            this.ThursCheck.UseVisualStyleBackColor = true;
             // 
-            // checkBox5
+            // FriCheck
             // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(292, 234);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(39, 17);
-            this.checkBox5.TabIndex = 20;
-            this.checkBox5.Text = "Пт";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.FriCheck.AutoSize = true;
+            this.FriCheck.Location = new System.Drawing.Point(292, 206);
+            this.FriCheck.Name = "FriCheck";
+            this.FriCheck.Size = new System.Drawing.Size(39, 17);
+            this.FriCheck.TabIndex = 20;
+            this.FriCheck.Text = "Пт";
+            this.FriCheck.UseVisualStyleBackColor = true;
             // 
-            // checkBox6
+            // SatCheck
             // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(336, 234);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(40, 17);
-            this.checkBox6.TabIndex = 21;
-            this.checkBox6.Text = "Сб";
-            this.checkBox6.UseVisualStyleBackColor = true;
+            this.SatCheck.AutoSize = true;
+            this.SatCheck.Location = new System.Drawing.Point(336, 206);
+            this.SatCheck.Name = "SatCheck";
+            this.SatCheck.Size = new System.Drawing.Size(40, 17);
+            this.SatCheck.TabIndex = 21;
+            this.SatCheck.Text = "Сб";
+            this.SatCheck.UseVisualStyleBackColor = true;
             // 
-            // checkBox7
+            // SunCheck
             // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(381, 234);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(38, 17);
-            this.checkBox7.TabIndex = 22;
-            this.checkBox7.Text = "Вс";
-            this.checkBox7.UseVisualStyleBackColor = true;
+            this.SunCheck.AutoSize = true;
+            this.SunCheck.Location = new System.Drawing.Point(381, 206);
+            this.SunCheck.Name = "SunCheck";
+            this.SunCheck.Size = new System.Drawing.Size(38, 17);
+            this.SunCheck.TabIndex = 22;
+            this.SunCheck.Text = "Вс";
+            this.SunCheck.UseVisualStyleBackColor = true;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(12, 234);
+            this.label9.Location = new System.Drawing.Point(12, 206);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(97, 13);
             this.label9.TabIndex = 23;
             this.label9.Text = "Рабочий график:";
             // 
-            // button1
+            // addDriverBtn
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(15, 257);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(404, 23);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "Добавить";
-            this.button1.UseVisualStyleBackColor = true;
+            this.addDriverBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addDriverBtn.Location = new System.Drawing.Point(15, 257);
+            this.addDriverBtn.Name = "addDriverBtn";
+            this.addDriverBtn.Size = new System.Drawing.Size(404, 23);
+            this.addDriverBtn.TabIndex = 24;
+            this.addDriverBtn.Text = "Добавить";
+            this.addDriverBtn.UseVisualStyleBackColor = true;
+            this.addDriverBtn.Click += new System.EventHandler(this.addDriverBtn_Click);
             // 
-            // button2
+            // closeBtn
             // 
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(15, 286);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(404, 23);
-            this.button2.TabIndex = 25;
-            this.button2.Text = "Отмена";
-            this.button2.UseVisualStyleBackColor = true;
+            this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closeBtn.Location = new System.Drawing.Point(15, 286);
+            this.closeBtn.Name = "closeBtn";
+            this.closeBtn.Size = new System.Drawing.Size(404, 23);
+            this.closeBtn.TabIndex = 25;
+            this.closeBtn.Text = "Отмена";
+            this.closeBtn.UseVisualStyleBackColor = true;
+            this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
             // 
             // AddDriver
             // 
@@ -300,32 +281,30 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(434, 318);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.closeBtn);
+            this.Controls.Add(this.addDriverBtn);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.checkBox7);
-            this.Controls.Add(this.checkBox6);
-            this.Controls.Add(this.checkBox5);
-            this.Controls.Add(this.checkBox4);
-            this.Controls.Add(this.checkBox3);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.SunCheck);
+            this.Controls.Add(this.SatCheck);
+            this.Controls.Add(this.FriCheck);
+            this.Controls.Add(this.ThursCheck);
+            this.Controls.Add(this.WedCheck);
+            this.Controls.Add(this.TuesCheck);
+            this.Controls.Add(this.MonCheck);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.maskedTextBox5);
-            this.Controls.Add(this.maskedTextBox4);
-            this.Controls.Add(this.maskedTextBox3);
-            this.Controls.Add(this.maskedTextBox2);
-            this.Controls.Add(this.maskedTextBox1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.RouteInput);
+            this.Controls.Add(this.BusInput);
+            this.Controls.Add(this.ExpInput);
+            this.Controls.Add(this.PatronymicInput);
+            this.Controls.Add(this.NameInput);
+            this.Controls.Add(this.LastNameInput);
+            this.Controls.Add(this.GradeInput);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(450, 353);
             this.MinimizeBox = false;
@@ -341,31 +320,29 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox3;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox4;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox5;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox GradeInput;
+        private System.Windows.Forms.MaskedTextBox LastNameInput;
+        private System.Windows.Forms.MaskedTextBox NameInput;
+        private System.Windows.Forms.MaskedTextBox PatronymicInput;
+        private System.Windows.Forms.MaskedTextBox ExpInput;
+        private System.Windows.Forms.ComboBox BusInput;
+        private System.Windows.Forms.ComboBox RouteInput;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.CheckBox checkBox6;
-        private System.Windows.Forms.CheckBox checkBox7;
+        private System.Windows.Forms.CheckBox MonCheck;
+        private System.Windows.Forms.CheckBox TuesCheck;
+        private System.Windows.Forms.CheckBox WedCheck;
+        private System.Windows.Forms.CheckBox ThursCheck;
+        private System.Windows.Forms.CheckBox FriCheck;
+        private System.Windows.Forms.CheckBox SatCheck;
+        private System.Windows.Forms.CheckBox SunCheck;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button addDriverBtn;
+        private System.Windows.Forms.Button closeBtn;
     }
 }

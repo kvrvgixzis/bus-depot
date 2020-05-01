@@ -79,7 +79,6 @@ namespace bus_depot
         public string Number { get; set; }
         public string Type { get; set; }
         public int Сapacity { get; set; }
-        public ObjectId DriverId { get; set; }
         public bool IsWorking { get; set; }
         public Bus()
         {
