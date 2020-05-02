@@ -7,7 +7,7 @@
 - C# using Visual Studio
 - MongoDB using NoSQLBooster
 
-**Список задач:**
+## TODO
 
 - [x] Установка и настройка MongoDB на Windows 10
 - [x] Создание двух пользователей с разными правами
