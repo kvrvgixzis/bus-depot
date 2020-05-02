@@ -1,4 +1,4 @@
-![repo-size]([https://img.shields.io/github/repo-size/kvrvgixzis/bus-depot)
+![GitHub repo size](https://img.shields.io/github/repo-size/kvrvgixzis/bus-depot)
 # Курсовая работа РГППУ Парфенов Н.А. ООП 2020г.
 > Вариант 6: Автобусный парк
 > Требуется разработать программную систему, предназначенную для диспетчера
