@@ -31,7 +31,7 @@ namespace bus_depot
                 endPointInput.Text.Length != 0 &&
                 stTimeInpuut.Text.Length != 0 &&
                 endTimeInput.Text.Length != 0 &&
-                intervalInput.Text.Length != 0 &&
+                intervalInput.Text.Length != 0
                 )
             {
                 var route = new Route();
