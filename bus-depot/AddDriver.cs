@@ -49,7 +49,13 @@ namespace bus_depot
         private void addDriverBtn_Click(object sender, EventArgs e)
         {
             if (NameInput.Text.Length != 0 &&
-                LastNameInput.Text.Length != 0)
+                LastNameInput.Text.Length != 0 &&
+                GradeInput.SelectedIndex > -1 &&
+                Convert.ToInt32(ExpInput.Text) >= 1 &&
+                Convert.ToInt32(ExpInput.Text) <= 3 &&
+                BusInput.SelectedIndex > -1 &&
+                RouteInput.SelectedIndex > -1
+                )
             {
                 var buses_doc = database.LoadAllDocuments<Bus>("buses");
                 var routes_doc = database.LoadAllDocuments<Route>("routes");
