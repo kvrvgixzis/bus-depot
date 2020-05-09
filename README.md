@@ -19,7 +19,7 @@
 - [x] Реализовать отображение коллекций на главной странице
 - [x] Реализовать удаление выделенной записи по кнопке
 - [x] Реализовать добавление нового маршрута
-- [ ] Реализовать добавление нового автобуса
+- [x] Реализовать добавление нового автобуса
 - [x] Реализовать добавление нового водителя
 - [ ] Реализовать редактирование маршрута
 - [ ] Реализовать редактирование автобуса
@@ -27,6 +27,62 @@
 - [ ] Отображение сводной информации
 - [x] Сделать .gitignore
 - [x] Выгрузить базу на удаленный сервер
+
+
+## Подключение к базе данных
+
+### Кнопка логина
+
+```csharp
+    private void loginBtn_Click(object sender, EventArgs e)
+    {
+        string login = loginInput.Text;
+        string pwd = pwdInput.Text;
+        MongoTools database = Program.Login(login, pwd);
+        if (MongoTools.isConnect)
+        {
+            if (login == "admin") {
+                MongoTools.isAdmin = true;
+            }
+            MainForm mainForm = new MainForm(database);
+            mainForm.Show();
+            this.Hide();
+        }
+        else
+        {
+            loginBtn.ForeColor = Color.FromName("red");
+            loginBtn.Text = "Неверный логин или пароль. Попробуйте снова!";
+        }
+    }
+```
+
+### Подключение
+
+```csharp
+    static public MongoTools Login(string login, string pwd)
+    {
+        var connectionString = $"mongodb://{login}:{pwd}@94.230.138.242:49563/?authSource=bus_depot";
+        const string databaseName = "bus_depot";
+        MongoTools database = new MongoTools(connectionString, databaseName);
+        return database;
+    }
+```
+
+### Проверка логина
+
+```csharp
+    public MongoTools(string connectionString, string databaseName)
+    {
+        //Create new database connection
+        var client = new MongoClient(connectionString);
+        db = client.GetDatabase(databaseName);
+        try {
+            isConnect = db.RunCommandAsync((Command<BsonDocument>)"{ping:1}").Wait(1000);
+        } catch {
+            isConnect = false;
+        }
+    }
+```
 
 ## Модели базы данных MongoDB | MongoDB Models:
 ### **Водитель** *Driver*
@@ -119,14 +175,16 @@
 ### Интерфейс:
 - Логин:
 
-![login_screen](images/login_screen.png)
-![wrong_login_screen](images/wrong_login_screen.png)
+![login_screen](images/login_screen.jpg)
+![wrong_login_screen](images/wrong_login_screen.jpg)
 - Главный экран:
 
-![main_screen](images/main_screen.png)
+![main_screen](images/main_screen.jpg)
 - Добавление:
 
-![add_route_screen](images/add_route_screen.png)
+![add_route_screen](images/add_route_screen.jpg)
+![add_bus_screen](images/add_bus_screen.jpg)
+![add_driver_screen](images/add_driver_screen.jpg)
 
 ### Функции:
 **Корректировка коллекций:**
