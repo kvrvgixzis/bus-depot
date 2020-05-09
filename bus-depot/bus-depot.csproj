@@ -114,6 +114,9 @@
     <Compile Include="MongoModels.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddBus.resx">
+      <DependentUpon>AddBus.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddDriver.resx">
       <DependentUpon>AddDriver.cs</DependentUpon>
     </EmbeddedResource>

@@ -34,18 +34,19 @@ namespace bus_depot
                 intervalInput.Text.Length != 0
                 )
             {
-                var route = new Route();
-
-                route.Number = Convert.ToInt32(numberInput.Text);
-                route.StPoint = stPointInput.Text;
-                route.EndPoint = endPointInput.Text;
-                route.StTime = stTimeInpuut.Text;
-                route.EndTime = endTimeInput.Text;
-                route.Interval = Convert.ToInt32(intervalInput.Text);
-
                 string[] stTime = stTimeInpuut.Text.Split(':');
                 string[] endTime = endTimeInput.Text.Split(':');
-                route.Length = (Convert.ToInt32(endTime[0]) * 60 + Convert.ToInt32(endTime[1])) - (Convert.ToInt32(stTime[0]) * 60 + Convert.ToInt32(stTime[1]));
+
+                var route = new Route
+                {
+                    Number = Convert.ToInt32(numberInput.Text),
+                    StPoint = stPointInput.Text,
+                    EndPoint = endPointInput.Text,
+                    StTime = stTimeInpuut.Text,
+                    EndTime = endTimeInput.Text,
+                    Interval = Convert.ToInt32(intervalInput.Text),
+                    Length = (Convert.ToInt32(endTime[0]) * 60 + Convert.ToInt32(endTime[1])) - (Convert.ToInt32(stTime[0]) * 60 + Convert.ToInt32(stTime[1]))
+                };
 
                 database.InsertDocument<Route>("routes", route);
                 this.Close();

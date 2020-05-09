@@ -59,13 +59,16 @@ namespace bus_depot
             {
                 var buses_doc = database.LoadAllDocuments<Bus>("buses");
                 var routes_doc = database.LoadAllDocuments<Route>("routes");
-                var driver = new Driver();
-
-                driver.Name = NameInput.Text;
-                driver.LastName = LastNameInput.Text;
-                driver.Patronymic = PatronymicInput.Text;
-                driver.Grade = GradeInput.SelectedIndex + 1;
-                driver.Experience = Convert.ToInt32(ExpInput.Text);
+                var driver = new Driver
+                {
+                    Name = NameInput.Text,
+                    LastName = LastNameInput.Text,
+                    Patronymic = PatronymicInput.Text,
+                    Grade = GradeInput.SelectedIndex + 1,
+                    Experience = Convert.ToInt32(ExpInput.Text),
+                    BusId = buses_doc[BusInput.SelectedIndex].Id,
+                    RouteId = routes_doc[RouteInput.SelectedIndex].Id
+                };
 
                 if (MonCheck.Checked) driver.Schedule.Add("Пн");
                 if (TuesCheck.Checked) driver.Schedule.Add("Вт");
@@ -76,8 +79,7 @@ namespace bus_depot
                 if (SunCheck.Checked) driver.Schedule.Add("Вс");
 
                 driver.Salary = (2000 + 100 * driver.Experience) / driver.Grade * driver.Schedule.Count * 4;
-                driver.BusId = buses_doc[BusInput.SelectedIndex].Id;
-                driver.RouteId = routes_doc[RouteInput.SelectedIndex].Id;
+                
 
                 database.InsertDocument<Driver>("drivers", driver);
                 this.Close();

@@ -147,9 +147,9 @@ namespace bus_depot
             if (!MongoTools.isAdmin)
             {
                 AddNewElementBtn.Visible = false;
-                editSelectBtn.Visible = false;
                 deleteSelectedBtn.Visible = false;
             }
+            editSelectBtn.Visible = false;
         }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -211,8 +211,12 @@ namespace bus_depot
         private void AddNewElementBtn_Click(object sender, EventArgs e)
         {
             if (collectionName == "buses") {
-
-            } else if (collectionName == "routes") {
+                AddBus form = new AddBus(database);
+                form.ShowDialog();
+                ShowBuses();
+                //MessageBox.Show("Автобус добавлен");
+            }
+            else if (collectionName == "routes") {
                 AddRoute form = new AddRoute(database);
                 form.ShowDialog();
                 ShowRoutes();
