@@ -5,19 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>[TITLE]</title>
     <style>
-        body {
-            padding: 20px 100px;
+        .container {
+            width: 60%;
+            margin: 0 auto;
+            font-family: monospace;
+        }
+        .bus__drivers,
+        .drivers__drivers {
+            padding: 10px 0;
+            padding-left: 50px;
+        }
+        .bus__drivers span,
+        .drivers__drivers span {
+            display: inline-block;
+            border: 1px solid black;
+            padding: 0 3px;
+        }
+        table {
+            width: 100%;
+            text-align: center;
+            border: 1px solid rgb(134, 134, 134);
+            margin: 30px 0;
+        }
+        tr.table__header { font-weight: bold; }
+        tr.dark { background-color: rgb(226, 226, 226); }
+        tr.light { background-color: rgb(243, 243, 243); }
+        .data__block {
+            padding: 5px 0;
+        }
+        .data__block span {
+            font-weight: bold;
+        }
+        .about {
+            padding: 20px 0;
         }
     </style>
 </head>
 <body>
-    <h1>Отчет</h1>
-    <h2>[type]</h2>
-    <div>
-        [grid]
+    <div class="container">
+        <h1>Отчет</h1>
+        <h2>[type]</h2>
+        <div>
+            [grid]
+        </div>
+        <div>
+            [data]
+        </div>
+        <hr>
+        <div class="about">
+            ИП Парфенов Н.А.
+        </div>
     </div>
-    <div>
-        [data]
-    </div>
+    
 </body>
 </html>

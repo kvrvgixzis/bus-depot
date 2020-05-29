@@ -58,11 +58,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(767, 450);
             this.Controls.Add(this.printBtn);
             this.Controls.Add(this.webBrowser);
             this.Name = "ReportForm";
-            this.Text = "ReportForm";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Отчет";
             this.Load += new System.EventHandler(this.ReportForm_Load);
             this.ResumeLayout(false);
 

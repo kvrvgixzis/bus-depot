@@ -2,10 +2,8 @@
 using MongoDB.Bson.Serialization.Attributes;
 using System.Collections.Generic;
 
-namespace bus_depot
-{
-    public partial class Driver
-    {
+namespace bus_depot {
+    public partial class Driver {
         /*
          * id,
          * ФИО,
@@ -27,15 +25,13 @@ namespace bus_depot
         public ObjectId BusId { get; set; }
         public ObjectId RouteId { get; set; }
         public List<string> Schedule { get; set; }
-        public Driver()
-        {
+        public Driver() {
             Id = ObjectId.GenerateNewId();
             Schedule = new List<string>();
         }
     }
 
-    public partial class Route
-    {
+    public partial class Route {
         /*
          * id,
          * номер,
@@ -55,14 +51,12 @@ namespace bus_depot
         public string EndTime { get; set; }
         public int Interval { get; set; }
         public int Length { get; set; }
-        public Route()
-        {
+        public Route() {
             Id = ObjectId.GenerateNewId();
         }
     }
 
-    public partial class Bus
-    {
+    public partial class Bus {
         /*
          * id,
          * номер,
@@ -77,8 +71,7 @@ namespace bus_depot
         public string Type { get; set; }
         public int Сapacity { get; set; }
         public bool IsWorking { get; set; }
-        public Bus()
-        {
+        public Bus() {
             Id = ObjectId.GenerateNewId();
         }
     }

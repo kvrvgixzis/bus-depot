@@ -312,6 +312,7 @@
             this.MinimumSize = new System.Drawing.Size(450, 353);
             this.Name = "AddDriver";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Добавить водителя";
             this.Load += new System.EventHandler(this.AddDriver_Load);
             this.ResumeLayout(false);

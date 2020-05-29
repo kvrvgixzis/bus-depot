@@ -1,32 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace bus_depot
-{
-    public partial class AddBus : Form
-    {
+namespace bus_depot {
+    public partial class AddBus : Form {
         MongoTools database;
-        public AddBus(MongoTools database)
-        {
+        public AddBus(MongoTools database) {
             this.database = database;
             InitializeComponent();
         }
 
-        private void addBusBtn_Click(object sender, EventArgs e)
-        {
+        private void addBusBtn_Click(object sender, EventArgs e) {
             if (numberInput.Text.Length != 0 &&
                 typeInput.SelectedIndex > -1 &&
-                capacityInput.Text.Length != 0)
-            {
-                var bus = new Bus
-                {
+                capacityInput.Text.Length != 0) {
+                var bus = new Bus {
                     Number = numberInput.Text,
                     Type = typeInput.Text,
                     Сapacity = Convert.ToInt32(capacityInput.Text),
@@ -35,21 +23,17 @@ namespace bus_depot
 
                 database.InsertDocument<Bus>("buses", bus);
                 this.Close();
-            }
-            else
-            {
+            } else {
                 addBusBtn.ForeColor = Color.FromName("red");
                 addBusBtn.Text = "Заполните обязательные поля и попробуйте снова!";
             }
         }
 
-        private void AddBus_Load(object sender, EventArgs e)
-        {
+        private void AddBus_Load(object sender, EventArgs e) {
             isWorkingInput.SelectedIndex = 0;
         }
 
-        private void closeBtn_Click(object sender, EventArgs e)
-        {
+        private void closeBtn_Click(object sender, EventArgs e) {
             this.Close();
         }
     }

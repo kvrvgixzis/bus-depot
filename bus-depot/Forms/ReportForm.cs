@@ -1,112 +1,116 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using MongoDB.Bson;
 
 
-namespace bus_depot.Forms
-{
-    public partial class ReportForm : Form
-    {
+namespace bus_depot.Forms {
+    public partial class ReportForm : Form {
         readonly DataGridView grid;
         readonly MongoTools database;
         readonly string collectionName;
-        public ReportForm(MongoTools database, DataGridView grid, string collectionName)
-        {
+        public ReportForm(MongoTools database, DataGridView grid, string collectionName) {
             this.grid = grid;
+            this.database = database;
             this.collectionName = collectionName;
             InitializeComponent();
         }
-        private string getHtmlTable(DataGridView grid)
-        {
-            string html = "<table cellpadding='5' cellspacing='0' style='border: 1px solid #ccc;font-size: 9pt;font-family:arial'>";
-            html += "<tr>";
-            int i = 0;
-            foreach (DataGridViewColumn column in grid.Columns)
-            {
-                if (i == 0)
-                {
-                    i++;
-                    continue;
-                }
-                html += "<th style='border: 1px solid #ccc'>" + column.HeaderText + "</th>";
-                i++;
+        private string getHtmlTable(DataGridView grid) {
+            string htmlTable = "<table cellpadding='5' cellspacing='0'>";
+            htmlTable += "<tr class='table__header'>";
+            foreach (DataGridViewColumn column in grid.Columns) {
+                if (grid.Columns[0] == column) continue; // skip ID column
+                htmlTable += $"<th>{column.HeaderText}</th>";
             }
-            html += "</tr>";
-            foreach (DataGridViewRow row in grid.Rows)
-            {
-                i = 0;
-                html += "<tr>";
-                foreach (DataGridViewCell cell in row.Cells)
-                {
-                    if (i == 0)
-                    {
-                        i++;
-                        continue;
-                    }
-                    html += "<td style='width:120px;border: 1px solid #ccc'>" + cell.Value.ToString() + "</td>";
+            htmlTable += "</tr>";
+            int iterator = 0;
+            foreach (DataGridViewRow row in grid.Rows) {
+                string className = iterator % 2 == 0 ? "light" : "dark";
+                htmlTable += $"<tr class=\"{className}\">";
+                foreach (DataGridViewCell cell in row.Cells) {
+                    if (row.Cells[0] == cell) continue; // skip ID column
+                    htmlTable += $"<td>{cell.Value}</td>";
                 }
-                html += "</tr>";
-                i++;
+                htmlTable += "</tr>";
+                iterator++;
             }
-            html += "</table>";
-            return html;
+            htmlTable += "</table>";
+            return htmlTable;
         }
-        private string getHtmlData(MongoTools database, string collectionName)
-        {
-            string data = "";
-            if (collectionName == "drivers")
-            {
+        private string getHtmlData(MongoTools database, string collectionName) {
+            string htmlData = "";
 
-            }
-            else if (collectionName == "buses") 
-            {
-                var buses = database.LoadAllDocuments<Bus>("buses");
+            if (collectionName == "drivers") {
+                List<Driver> drivers = database.LoadAllDocuments<Driver>("drivers");
+
+                int count = drivers.Count();
+
+                DateTime dt = DateTime.Now;
+                string dayOfWeek = dt.ToString("ddd");
+                int withWorkingBusesCount = drivers.Where(driver => database.LoadDocumentById<Bus>("buses", driver.BusId).IsWorking ).Count();
+                
+                List<Driver> todayWorkingList = drivers.Where(driver => driver.Schedule.Contains(dayOfWeek)).ToList();
+                int todayWorkingCount = todayWorkingList.Count();
+                string todayWorkingHtml = "";
+
+                foreach (Driver driver in todayWorkingList) {
+                    Bus bus = database.LoadDocumentById<Bus>("buses", driver.BusId);
+                    todayWorkingHtml += $"<div class=\"drivers__drivers\">{driver.LastName} {driver.Name}: <span>{bus.Number}</span></div>";
+                }
+                htmlData = $"<div class=\"data__block\"><span>Количество водителей: </span> {count}</div>" +
+                    $"<div class=\"data__block\"><span>Количество водителей с работающими автобусами: </span> {withWorkingBusesCount}</div>" +
+                    $"<div class=\"data__block\"><span>Сегодня работает водителей: </span> {todayWorkingCount}</div>" +
+                    $"<div class=\"data__block\"><span>Сегодня работают: </span> {todayWorkingHtml}</div>";
+
+            } else if (collectionName == "buses") {
+                List<Bus> buses = database.LoadAllDocuments<Bus>("buses");
 
                 int count = buses.Count();
                 int workingCount = buses.Where(bus => bus.IsWorking).Count();
+
                 int maxEndTime = 0;
-
                 string maxEndTimeStr = "";
-                string[] drivers = { };
+                string driversList = "";
 
-                foreach (var bus in buses)
-                {
-                    var driver = database.LoadDocumentById<Driver>("drivers", bus.Id);
-                    ObjectId routeId = driver.RouteId;
-                    var route = database.LoadDocumentById<Route>("routes", routeId);
-                    string endTimeStr = route.EndTime;
-                    int endTime = Convert.ToInt32(endTimeStr[0]) + Convert.ToInt32(endTimeStr[1]);
+                foreach (var bus in buses) {
+                    List<Driver> drivers = database.LoadAllDocuments<Driver>("drivers");
+                    Driver driver = drivers.Find(d => d.BusId == bus.Id);
 
-                    drivers.Append($"{bus.Number}: {driver.LastName} {driver.Name}");
-                    if (endTime > maxEndTime)
-                    {
-                        maxEndTime = endTime;
-                        maxEndTimeStr = endTimeStr;
+                    if (driver != null) {
+                        ObjectId routeId = driver.RouteId;
+
+                        Route route = database.LoadDocumentById<Route>("routes", routeId);
+
+                        driversList += $"<div class='bus__drivers'><span>{bus.Number}</span>: {driver.LastName} {driver.Name}</div>";
+                        
+                        string endTimeStr = route.EndTime;
+                        int endTime = Convert.ToInt32(endTimeStr[0]) + Convert.ToInt32(endTimeStr[1]);
+
+                        if (endTime > maxEndTime) {
+                            maxEndTime = endTime;
+                            maxEndTimeStr = endTimeStr;
+                        }
                     }
                 }
+                htmlData = $"<div class=\"data__block\"><span>Количество автобусов:</span> {count}</div>" +
+                    $"<div class=\"data__block\"><span>Количество сломанных автобусов:</span> {count - workingCount}</div>" +
+                    $"<div class=\"data__block\"><span>Последний автобус приедет в:</span> {maxEndTimeStr}</div>" +
+                    $"<div class=\"data__block\"><span>Список водителей:</span> {driversList}</div>";
 
-                data = $"<div> Количество автобусов: {count}</div>" +
-                    $"<div>Количество сломанных автобусов: {count - workingCount}</div>" +
-                    $"<div>Последний автобус приедет в: {maxEndTimeStr}</div>" +
-                    $"<div>Список водителей: {drivers}</div>";
-            } 
-            else if (collectionName == "routes")
-            {
+            } else if (collectionName == "routes") {
+                List<Route> routes = database.LoadAllDocuments<Route>("routes");
+                List<Driver> drivers = database.LoadAllDocuments<Driver>("drivers");
+                List<Bus> buses = database.LoadAllDocuments<Bus>("buses");
+
+                int count = routes.Count();
+
 
             }
-            
-
-            return data;
+            return htmlData;
         }
-        private string getReportType(string collectionName)
-        {
+        private string getReportType(string collectionName) {
             string type = "";
             if (collectionName == "drivers")
                 type = "Водители";
@@ -116,20 +120,17 @@ namespace bus_depot.Forms
                 type = "Маршруты";
             return type;
         }
-        private void ReportForm_Load(object sender, EventArgs e)
-        {
+        private void ReportForm_Load(object sender, EventArgs e) {
             string templatePath = "../../HtmlTemplates/report.html";
             var template = new HtmlTemplate(templatePath);
-            var output = template.Render(new
-            {
+            var output = template.Render(new {
                 type = getReportType(collectionName),
                 grid = getHtmlTable(grid),
                 data = getHtmlData(database, collectionName),
             });
             webBrowser.DocumentText = output;
         }
-        private void printBtn_Click(object sender, EventArgs e)
-        {
+        private void printBtn_Click(object sender, EventArgs e) {
             webBrowser.ShowPrintDialog();
         }
     }

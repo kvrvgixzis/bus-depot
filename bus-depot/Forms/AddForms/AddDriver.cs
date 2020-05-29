@@ -1,26 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace bus_depot
-{
-    public partial class AddDriver : Form
-    {
+namespace bus_depot {
+    public partial class AddDriver : Form {
         MongoTools database;
-        public AddDriver(MongoTools database)
-        {
+        public AddDriver(MongoTools database) {
             this.database = database;
             InitializeComponent();
         }
 
-        private void AddDriver_Load(object sender, EventArgs e)
-        {
+        private void AddDriver_Load(object sender, EventArgs e) {
             var buses_doc = database.LoadAllDocuments<Bus>("buses");
             var routes_doc = database.LoadAllDocuments<Route>("routes");
 
@@ -41,25 +32,21 @@ namespace bus_depot
             RouteInput.Items.AddRange(routes_array);
         }
 
-        private void closeBtn_Click(object sender, EventArgs e)
-        {
+        private void closeBtn_Click(object sender, EventArgs e) {
             this.Close();
         }
 
-        private void addDriverBtn_Click(object sender, EventArgs e)
-        {
+        private void addDriverBtn_Click(object sender, EventArgs e) {
             if (NameInput.Text.Length > 0 &&
                 LastNameInput.Text.Length > 0 &&
                 GradeInput.SelectedIndex > -1 &&
                 ExpInput.Text.Length > 0 &&
                 BusInput.SelectedIndex > -1 &&
                 RouteInput.SelectedIndex > -1
-                )
-            {
+                ) {
                 var buses_doc = database.LoadAllDocuments<Bus>("buses");
                 var routes_doc = database.LoadAllDocuments<Route>("routes");
-                var driver = new Driver
-                {
+                var driver = new Driver {
                     Name = NameInput.Text,
                     LastName = LastNameInput.Text,
                     Patronymic = PatronymicInput.Text,
@@ -78,13 +65,11 @@ namespace bus_depot
                 if (SunCheck.Checked) driver.Schedule.Add("Вс");
 
                 driver.Salary = (2000 + 100 * driver.Experience) / driver.Grade * driver.Schedule.Count * 4;
-                
+
 
                 database.InsertDocument<Driver>("drivers", driver);
                 this.Close();
-            } 
-            else
-            {
+            } else {
                 addDriverBtn.ForeColor = Color.FromName("red");
                 addDriverBtn.Text = "Заполните обязательные поля и попробуйте снова!";
             }

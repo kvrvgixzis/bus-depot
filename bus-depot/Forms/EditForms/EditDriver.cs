@@ -1,23 +1,15 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using MongoDB.Bson;
 
-namespace bus_depot.EditForms
-{
-    public partial class EditDriver : Form
-    {
+namespace bus_depot.EditForms {
+    public partial class EditDriver : Form {
         readonly MongoTools database;
         readonly ObjectId id;
         readonly string collectionName;
-        public EditDriver(MongoTools database, string collectionName, ObjectId id)
-        {
+        public EditDriver(MongoTools database, string collectionName, ObjectId id) {
             this.database = database;
             this.collectionName = collectionName;
             this.id = id;
@@ -25,16 +17,14 @@ namespace bus_depot.EditForms
         }
 
         [Obsolete]
-        private void saveDriverBtn_Click(object sender, EventArgs e)
-        {
+        private void saveDriverBtn_Click(object sender, EventArgs e) {
             if (NameInput.Text.Length > 0 &&
                 LastNameInput.Text.Length > 0 &&
                 GradeInput.SelectedIndex > -1 &&
                 ExpInput.Text.Length > 0 &&
                 BusInput.SelectedIndex > -1 &&
                 RouteInput.SelectedIndex > -1
-                )
-            {
+                ) {
                 var buses_doc = database.LoadAllDocuments<Bus>("buses");
                 var routes_doc = database.LoadAllDocuments<Route>("routes");
 
@@ -62,21 +52,17 @@ namespace bus_depot.EditForms
 
                 database.UpdateDocument<Driver>("drivers", id, driver);
                 this.Close();
-            }
-            else
-            {
+            } else {
                 saveDriverBtn.ForeColor = Color.FromName("red");
                 saveDriverBtn.Text = "Заполните обязательные поля и попробуйте снова!";
             }
         }
 
-        private void closeBtn_Click(object sender, EventArgs e)
-        {
+        private void closeBtn_Click(object sender, EventArgs e) {
             this.Close();
         }
 
-        private void EditDriver_Load(object sender, EventArgs e)
-        {
+        private void EditDriver_Load(object sender, EventArgs e) {
             var buses_doc = database.LoadAllDocuments<Bus>("buses");
             var routes_doc = database.LoadAllDocuments<Route>("routes");
 

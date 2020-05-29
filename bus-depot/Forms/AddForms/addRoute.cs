@@ -1,44 +1,31 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace bus_depot
-{
-    public partial class AddRoute : Form
-    {
+namespace bus_depot {
+    public partial class AddRoute : Form {
         MongoTools database;
-        public AddRoute(MongoTools database)
-        {
+        public AddRoute(MongoTools database) {
             this.database = database;
             InitializeComponent();
         }
 
-        private void closeBtn_Click(object sender, EventArgs e)
-        {
+        private void closeBtn_Click(object sender, EventArgs e) {
             this.Close();
         }
 
-        private void addRouteBtn_Click(object sender, EventArgs e)
-        {
+        private void addRouteBtn_Click(object sender, EventArgs e) {
             if (numberInput.Text.Length != 0 &&
                 stPointInput.Text.Length != 0 &&
                 endPointInput.Text.Length != 0 &&
                 stTimeInpuut.Text.Length != 0 &&
                 endTimeInput.Text.Length != 0 &&
                 intervalInput.Text.Length != 0
-                )
-            {
+                ) {
                 string[] stTime = stTimeInpuut.Text.Split(':');
                 string[] endTime = endTimeInput.Text.Split(':');
 
-                var route = new Route
-                {
+                var route = new Route {
                     Number = Convert.ToInt32(numberInput.Text),
                     StPoint = stPointInput.Text,
                     EndPoint = endPointInput.Text,
@@ -50,13 +37,11 @@ namespace bus_depot
 
                 database.InsertDocument<Route>("routes", route);
                 this.Close();
-            }
-            else
-            {
+            } else {
                 addRouteBtn.ForeColor = Color.FromName("red");
                 addRouteBtn.Text = "Заполните обязательные поля и попробуйте снова!";
             }
-            
+
         }
     }
 }
