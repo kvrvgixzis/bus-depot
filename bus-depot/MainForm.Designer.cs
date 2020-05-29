@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.leftControlPanel = new System.Windows.Forms.Panel();
+            this.editSelectBtn = new System.Windows.Forms.Button();
             this.ReloginBtn = new System.Windows.Forms.Button();
             this.deleteSelectedBtn = new System.Windows.Forms.Button();
             this.ShowRoutesBtn = new System.Windows.Forms.Button();
@@ -37,7 +38,6 @@
             this.ExitBtn = new System.Windows.Forms.Button();
             this.ShowBusesBtn = new System.Windows.Forms.Button();
             this.Table = new System.Windows.Forms.DataGridView();
-            this.editSelectBtn = new System.Windows.Forms.Button();
             this.leftControlPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Table)).BeginInit();
             this.SuspendLayout();
@@ -58,6 +58,19 @@
             this.leftControlPanel.Name = "leftControlPanel";
             this.leftControlPanel.Size = new System.Drawing.Size(222, 447);
             this.leftControlPanel.TabIndex = 0;
+            // 
+            // editSelectBtn
+            // 
+            this.editSelectBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.editSelectBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editSelectBtn.Location = new System.Drawing.Point(10, 252);
+            this.editSelectBtn.Name = "editSelectBtn";
+            this.editSelectBtn.Size = new System.Drawing.Size(206, 32);
+            this.editSelectBtn.TabIndex = 7;
+            this.editSelectBtn.Text = "Изменить выделенное";
+            this.editSelectBtn.UseVisualStyleBackColor = true;
+            this.editSelectBtn.Click += new System.EventHandler(this.editSelectBtn_Click);
             // 
             // ReloginBtn
             // 
@@ -170,18 +183,6 @@
             this.Table.ShowEditingIcon = false;
             this.Table.Size = new System.Drawing.Size(558, 426);
             this.Table.TabIndex = 1;
-            // 
-            // editSelectBtn
-            // 
-            this.editSelectBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.editSelectBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editSelectBtn.Location = new System.Drawing.Point(10, 252);
-            this.editSelectBtn.Name = "editSelectBtn";
-            this.editSelectBtn.Size = new System.Drawing.Size(206, 32);
-            this.editSelectBtn.TabIndex = 7;
-            this.editSelectBtn.Text = "Изменить выделенное";
-            this.editSelectBtn.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 

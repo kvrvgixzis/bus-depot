@@ -1,4 +1,5 @@
 ﻿using System;
+
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -149,7 +150,7 @@ namespace bus_depot
                 AddNewElementBtn.Visible = false;
                 deleteSelectedBtn.Visible = false;
             }
-            editSelectBtn.Visible = false;
+            //editSelectBtn.Visible = false;
         }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -227,6 +228,30 @@ namespace bus_depot
                 form.ShowDialog();
                 ShowDrivers();
                 //MessageBox.Show("Водитель добавлен");
+            }
+        }
+
+        private void editSelectBtn_Click(object sender, EventArgs e)
+        {
+            string str_id = Table.SelectedRows[0].Cells[0].Value.ToString();
+            ObjectId id = MongoDB.Bson.ObjectId.Parse(str_id);
+            if (collectionName == "buses")
+            {
+                EditBus form = new EditBus(database, collectionName, id);
+                form.ShowDialog();
+                ShowBuses();
+            }
+            else if (collectionName == "routes")
+            {
+                EditBus form = new EditBus(database, collectionName, id);
+                form.ShowDialog();
+                ShowBuses();
+            }
+            else if (collectionName == "drivers")
+            {
+                EditBus form = new EditBus(database, collectionName, id);
+                form.ShowDialog();
+                ShowBuses();
             }
         }
     }

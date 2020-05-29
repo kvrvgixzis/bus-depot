@@ -30,7 +30,7 @@ namespace bus_depot
                     Number = numberInput.Text,
                     Type = typeInput.Text,
                     Сapacity = Convert.ToInt32(capacityInput.Text),
-                    IsWorking = (isWorkingInput.SelectedIndex == 0) ? true : false
+                    IsWorking = (isWorkingInput.SelectedIndex == 0)
                 };
 
                 database.InsertDocument<Bus>("buses", bus);
@@ -41,7 +41,6 @@ namespace bus_depot
                 addBusBtn.ForeColor = Color.FromName("red");
                 addBusBtn.Text = "Заполните обязательные поля и попробуйте снова!";
             }
-            
         }
 
         private void AddBus_Load(object sender, EventArgs e)

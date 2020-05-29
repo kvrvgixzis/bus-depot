@@ -98,6 +98,12 @@
     <Compile Include="AddRoute.Designer.cs">
       <DependentUpon>AddRoute.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditBus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditBus.Designer.cs">
+      <DependentUpon>EditBus.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddRoute.resx">
       <DependentUpon>AddRoute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditBus.resx">
+      <DependentUpon>EditBus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
