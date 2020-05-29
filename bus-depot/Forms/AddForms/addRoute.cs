@@ -45,7 +45,7 @@ namespace bus_depot
                     StTime = stTimeInpuut.Text,
                     EndTime = endTimeInput.Text,
                     Interval = Convert.ToInt32(intervalInput.Text),
-                    Length = (Convert.ToInt32(endTime[0]) * 60 + Convert.ToInt32(endTime[1])) - (Convert.ToInt32(stTime[0]) * 60 + Convert.ToInt32(stTime[1]))
+                    Length = (Convert.ToInt32(endTime[0]) * 60 + Convert.ToInt32(endTime[1])) - (Convert.ToInt32(stTime[0]) * 60 + Convert.ToInt32(stTime[1]) * 10)
                 };
 
                 database.InsertDocument<Route>("routes", route);

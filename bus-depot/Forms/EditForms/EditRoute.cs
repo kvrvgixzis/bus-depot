@@ -59,7 +59,7 @@ namespace bus_depot.EditForms
                 route.StTime = stTimeInpuut.Text;
                 route.EndTime = endTimeInput.Text;
                 route.Interval = Convert.ToInt32(intervalInput.Text);
-                route.Length = (Convert.ToInt32(endTime[0]) * 60 + Convert.ToInt32(endTime[1])) - (Convert.ToInt32(stTime[0]) * 60 + Convert.ToInt32(stTime[1]));
+                route.Length = (((Convert.ToInt32(endTime[0]) * 60 + Convert.ToInt32(endTime[1])) - (Convert.ToInt32(stTime[0]) * 60 + Convert.ToInt32(stTime[1]))) * 10);
 
                 database.UpdateDocument<Route>("routes", id, route);
                 this.Close();

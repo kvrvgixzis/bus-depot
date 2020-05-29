@@ -48,6 +48,8 @@ namespace bus_depot.EditForms
                 driver.BusId = buses_doc[BusInput.SelectedIndex].Id;
                 driver.RouteId = routes_doc[RouteInput.SelectedIndex].Id;
 
+                driver.Schedule.Clear();
+
                 if (MonCheck.Checked) driver.Schedule.Add("Пн");
                 if (TuesCheck.Checked) driver.Schedule.Add("Вт");
                 if (WedCheck.Checked) driver.Schedule.Add("Ср");
@@ -56,7 +58,7 @@ namespace bus_depot.EditForms
                 if (SatCheck.Checked) driver.Schedule.Add("Сб");
                 if (SunCheck.Checked) driver.Schedule.Add("Вс");
 
-                driver.Salary = (2000 + 100 * driver.Experience) / driver.Grade * driver.Schedule.Count * 4
+                driver.Salary = (2000 + 100 * driver.Experience) / driver.Grade * driver.Schedule.Count * 4;
 
                 database.UpdateDocument<Driver>("drivers", id, driver);
                 this.Close();

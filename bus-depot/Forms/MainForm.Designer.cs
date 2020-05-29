@@ -38,6 +38,7 @@
             this.ExitBtn = new System.Windows.Forms.Button();
             this.ShowBusesBtn = new System.Windows.Forms.Button();
             this.Table = new System.Windows.Forms.DataGridView();
+            this.showReportBtn = new System.Windows.Forms.Button();
             this.leftControlPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Table)).BeginInit();
             this.SuspendLayout();
@@ -46,6 +47,7 @@
             // 
             this.leftControlPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.leftControlPanel.Controls.Add(this.showReportBtn);
             this.leftControlPanel.Controls.Add(this.editSelectBtn);
             this.leftControlPanel.Controls.Add(this.ReloginBtn);
             this.leftControlPanel.Controls.Add(this.deleteSelectedBtn);
@@ -184,6 +186,16 @@
             this.Table.Size = new System.Drawing.Size(558, 426);
             this.Table.TabIndex = 1;
             // 
+            // showReportBtn
+            // 
+            this.showReportBtn.Location = new System.Drawing.Point(10, 337);
+            this.showReportBtn.Name = "showReportBtn";
+            this.showReportBtn.Size = new System.Drawing.Size(75, 23);
+            this.showReportBtn.TabIndex = 8;
+            this.showReportBtn.Text = "Отчет";
+            this.showReportBtn.UseVisualStyleBackColor = true;
+            this.showReportBtn.Click += new System.EventHandler(this.showReportBtn_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -217,5 +229,6 @@
         private System.Windows.Forms.Button deleteSelectedBtn;
         private System.Windows.Forms.Button ReloginBtn;
         private System.Windows.Forms.Button editSelectBtn;
+        private System.Windows.Forms.Button showReportBtn;
     }
 }

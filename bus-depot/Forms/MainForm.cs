@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using bus_depot.EditForms;
+using bus_depot.Forms;
 using MongoDB.Bson;
 
 
@@ -52,7 +53,7 @@ namespace bus_depot
                 string stTime = Convert.ToString(doc.StTime);
                 string endTime = Convert.ToString(doc.EndTime);
                 string interval = Convert.ToString(doc.Interval);
-                string lenght = Convert.ToString(doc.Length);
+                string lenght = Convert.ToString(doc.Length) + " м.";
 
                 string[] row = { ID, number, stPoint, endPoint, stTime, endTime, interval, lenght };
                 
@@ -78,7 +79,6 @@ namespace bus_depot
             Table.Columns[1].Name = "Номер";
             Table.Columns[2].Name = "Тип";
             Table.Columns[3].Name = "Мест";
-            //Table.Columns[4].Name = "Водитель";
             Table.Columns[4].Name = "Исправность";
 
             foreach (var doc in documents)
@@ -88,8 +88,7 @@ namespace bus_depot
                 string number = doc.Number;
                 string type = doc.Type;
                 string capacity = Convert.ToString(doc.Сapacity);
-                //string driver = (Convert.ToString(doc.DriverId) == "000000000000000000000000") ? "-" : Convert.ToString(doc.DriverId);
-                string isWorking = Convert.ToString(doc.IsWorking);
+                string isWorking = (doc.IsWorking) ? "Исправен" : "Неисправен";
 
                 string[] row = { ID, number, type, capacity, isWorking };
 
@@ -125,17 +124,18 @@ namespace bus_depot
             {
                 string ID = Convert.ToString(doc.Id);
 
+                var drivers_bus = database.LoadDocumentById<Bus>("buses", doc.BusId);
+                var drivers_route = database.LoadDocumentById<Route>("routes", doc.RouteId);
+
                 string fullName = $"{doc.LastName} {doc.Name} {doc.Patronymic}";
                 string grade = Convert.ToString(doc.Grade);
                 string exp = Convert.ToString(doc.Experience);
                 string sal = Convert.ToString(doc.Salary);
-                string bus = (Convert.ToString(doc.BusId) == "000000000000000000000000") ? "-" : Convert.ToString(doc.BusId);
-                string route = (Convert.ToString(doc.RouteId) == "000000000000000000000000") ? "-" : Convert.ToString(doc.RouteId);
+                string bus = $"{drivers_bus.Type} {drivers_bus.Number}";
+                string route = $"{drivers_route.Number}: {drivers_route.StPoint} — {drivers_route.EndPoint}";
                 string schedule = "";
                 foreach (var day in doc.Schedule)
-                {
                     schedule += $" {day}";
-                }
 
                 string[] row = { ID, fullName, grade, exp, sal, bus, route, schedule };
 
@@ -151,7 +151,6 @@ namespace bus_depot
                 AddNewElementBtn.Visible = false;
                 deleteSelectedBtn.Visible = false;
             }
-            //editSelectBtn.Visible = false;
         }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -190,7 +189,7 @@ namespace bus_depot
             if (dialogResult == DialogResult.Yes)
             {
                 string str_id = Table.SelectedRows[0].Cells[0].Value.ToString();
-                ObjectId id = MongoDB.Bson.ObjectId.Parse(str_id);
+                ObjectId id = ObjectId.Parse(str_id);
                 if (collectionName == "buses") {
                     database.DeleteDocument<Bus>(collectionName, id);
                     ShowBuses();
@@ -216,26 +215,23 @@ namespace bus_depot
                 AddBus form = new AddBus(database);
                 form.ShowDialog();
                 ShowBuses();
-                //MessageBox.Show("Автобус добавлен");
             }
             else if (collectionName == "routes") {
                 AddRoute form = new AddRoute(database);
                 form.ShowDialog();
                 ShowRoutes();
-                //MessageBox.Show("Маршрут добавлен");
             }
             else if (collectionName == "drivers") {
                 AddDriver form = new AddDriver(database);
                 form.ShowDialog();
                 ShowDrivers();
-                //MessageBox.Show("Водитель добавлен");
             }
         }
 
         private void editSelectBtn_Click(object sender, EventArgs e)
         {
             string str_id = Table.SelectedRows[0].Cells[0].Value.ToString();
-            ObjectId id = MongoDB.Bson.ObjectId.Parse(str_id);
+            ObjectId id = ObjectId.Parse(str_id);
             if (collectionName == "buses")
             {
                 EditBus form = new EditBus(database, collectionName, id);
@@ -254,6 +250,12 @@ namespace bus_depot
                 form.ShowDialog();
                 ShowDrivers();
             }
+        }
+
+        private void showReportBtn_Click(object sender, EventArgs e)
+        {
+            ReportForm form = new ReportForm(database, Table, collectionName);
+            form.ShowDialog();
         }
     }
 }
