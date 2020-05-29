@@ -80,29 +80,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddBus.cs">
+    <Compile Include="AddForms\AddBus.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddBus.Designer.cs">
+    <Compile Include="AddForms\AddBus.Designer.cs">
       <DependentUpon>AddBus.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddDriver.cs">
+    <Compile Include="AddForms\AddDriver.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddDriver.Designer.cs">
+    <Compile Include="AddForms\AddDriver.Designer.cs">
       <DependentUpon>AddDriver.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddRoute.cs">
+    <Compile Include="AddForms\AddRoute.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddRoute.Designer.cs">
+    <Compile Include="AddForms\AddRoute.Designer.cs">
       <DependentUpon>AddRoute.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditBus.cs">
+    <Compile Include="EditForms\EditBus.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditBus.Designer.cs">
+    <Compile Include="EditForms\EditBus.Designer.cs">
       <DependentUpon>EditBus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditForms\EditDriver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditForms\EditDriver.Designer.cs">
+      <DependentUpon>EditDriver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditForms\EditRoute.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditForms\EditRoute.Designer.cs">
+      <DependentUpon>EditRoute.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -120,17 +132,23 @@
     <Compile Include="MongoModels.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AddBus.resx">
+    <EmbeddedResource Include="AddForms\AddBus.resx">
       <DependentUpon>AddBus.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddDriver.resx">
+    <EmbeddedResource Include="AddForms\AddDriver.resx">
       <DependentUpon>AddDriver.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddRoute.resx">
+    <EmbeddedResource Include="AddForms\AddRoute.resx">
       <DependentUpon>AddRoute.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditBus.resx">
+    <EmbeddedResource Include="EditForms\EditBus.resx">
       <DependentUpon>EditBus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditForms\EditDriver.resx">
+      <DependentUpon>EditDriver.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditForms\EditRoute.resx">
+      <DependentUpon>EditRoute.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

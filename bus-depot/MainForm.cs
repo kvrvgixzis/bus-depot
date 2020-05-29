@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using bus_depot.EditForms;
 using MongoDB.Bson;
 
 
@@ -243,15 +244,15 @@ namespace bus_depot
             }
             else if (collectionName == "routes")
             {
-                EditBus form = new EditBus(database, collectionName, id);
+                EditRoute form = new EditRoute(database, collectionName, id);
                 form.ShowDialog();
-                ShowBuses();
+                ShowRoutes();
             }
             else if (collectionName == "drivers")
             {
-                EditBus form = new EditBus(database, collectionName, id);
+                EditDriver form = new EditDriver(database, collectionName, id);
                 form.ShowDialog();
-                ShowBuses();
+                ShowDrivers();
             }
         }
     }

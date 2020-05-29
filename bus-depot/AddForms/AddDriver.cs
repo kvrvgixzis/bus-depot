@@ -48,11 +48,10 @@ namespace bus_depot
 
         private void addDriverBtn_Click(object sender, EventArgs e)
         {
-            if (NameInput.Text.Length != 0 &&
-                LastNameInput.Text.Length != 0 &&
+            if (NameInput.Text.Length > 0 &&
+                LastNameInput.Text.Length > 0 &&
                 GradeInput.SelectedIndex > -1 &&
-                Convert.ToInt32(ExpInput.Text) >= 1 &&
-                Convert.ToInt32(ExpInput.Text) <= 3 &&
+                ExpInput.Text.Length > 0 &&
                 BusInput.SelectedIndex > -1 &&
                 RouteInput.SelectedIndex > -1
                 )

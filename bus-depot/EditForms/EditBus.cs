@@ -9,15 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MongoDB.Bson;
 
-
 namespace bus_depot
 {
     public partial class EditBus : Form
     {
-        MongoTools database;
-        ObjectId id;
-        String collectionName;
-        public EditBus(MongoTools database, String collectionName, ObjectId id)
+        readonly MongoTools database;
+        readonly ObjectId id;
+        readonly string collectionName;
+        public EditBus(MongoTools database, string collectionName, ObjectId id)
         {
             this.database = database;
             this.collectionName = collectionName;
