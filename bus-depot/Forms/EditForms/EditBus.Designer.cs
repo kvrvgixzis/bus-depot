@@ -45,7 +45,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(12, 90);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 13);
+            this.label4.Size = new System.Drawing.Size(67, 13);
             this.label4.TabIndex = 19;
             this.label4.Text = "Состояние:";
             // 
@@ -54,7 +54,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 64);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 13);
+            this.label3.Size = new System.Drawing.Size(101, 13);
             this.label3.TabIndex = 18;
             this.label3.Text = "Вместительность:";
             // 
@@ -63,7 +63,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 37);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 13);
+            this.label2.Size = new System.Drawing.Size(80, 13);
             this.label2.TabIndex = 17;
             this.label2.Text = "Тип автобуса:";
             // 
@@ -72,7 +72,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 13);
+            this.label1.Size = new System.Drawing.Size(97, 13);
             this.label1.TabIndex = 16;
             this.label1.Text = "Номер автобуса:";
             // 
@@ -113,7 +113,7 @@
             // 
             this.capacityInput.Location = new System.Drawing.Point(126, 61);
             this.capacityInput.Name = "capacityInput";
-            this.capacityInput.Size = new System.Drawing.Size(197, 20);
+            this.capacityInput.Size = new System.Drawing.Size(197, 22);
             this.capacityInput.TabIndex = 12;
             // 
             // typeInput
@@ -133,14 +133,15 @@
             // 
             this.numberInput.Location = new System.Drawing.Point(126, 7);
             this.numberInput.Name = "numberInput";
-            this.numberInput.Size = new System.Drawing.Size(197, 20);
+            this.numberInput.Size = new System.Drawing.Size(197, 22);
             this.numberInput.TabIndex = 10;
             // 
             // EditBus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(335, 181);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(335, 185);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -159,7 +160,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "EditBus";
+            this.Text = "Редактировать автобус";
             this.Load += new System.EventHandler(this.EditBus_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

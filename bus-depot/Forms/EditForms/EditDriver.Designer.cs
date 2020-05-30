@@ -81,7 +81,7 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(10, 206);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(92, 13);
+            this.label9.Size = new System.Drawing.Size(97, 13);
             this.label9.TabIndex = 47;
             this.label9.Text = "Рабочий график:";
             // 
@@ -90,7 +90,7 @@
             this.SunCheck.AutoSize = true;
             this.SunCheck.Location = new System.Drawing.Point(379, 206);
             this.SunCheck.Name = "SunCheck";
-            this.SunCheck.Size = new System.Drawing.Size(39, 17);
+            this.SunCheck.Size = new System.Drawing.Size(38, 17);
             this.SunCheck.TabIndex = 46;
             this.SunCheck.Text = "Вс";
             this.SunCheck.UseVisualStyleBackColor = true;
@@ -100,7 +100,7 @@
             this.SatCheck.AutoSize = true;
             this.SatCheck.Location = new System.Drawing.Point(334, 206);
             this.SatCheck.Name = "SatCheck";
-            this.SatCheck.Size = new System.Drawing.Size(39, 17);
+            this.SatCheck.Size = new System.Drawing.Size(40, 17);
             this.SatCheck.TabIndex = 45;
             this.SatCheck.Text = "Сб";
             this.SatCheck.UseVisualStyleBackColor = true;
@@ -130,7 +130,7 @@
             this.WedCheck.AutoSize = true;
             this.WedCheck.Location = new System.Drawing.Point(201, 206);
             this.WedCheck.Name = "WedCheck";
-            this.WedCheck.Size = new System.Drawing.Size(39, 17);
+            this.WedCheck.Size = new System.Drawing.Size(40, 17);
             this.WedCheck.TabIndex = 42;
             this.WedCheck.Text = "Ср";
             this.WedCheck.UseVisualStyleBackColor = true;
@@ -150,7 +150,7 @@
             this.MonCheck.AutoSize = true;
             this.MonCheck.Location = new System.Drawing.Point(112, 206);
             this.MonCheck.Name = "MonCheck";
-            this.MonCheck.Size = new System.Drawing.Size(40, 17);
+            this.MonCheck.Size = new System.Drawing.Size(41, 17);
             this.MonCheck.TabIndex = 40;
             this.MonCheck.Text = "Пн";
             this.MonCheck.UseVisualStyleBackColor = true;
@@ -160,7 +160,7 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(10, 181);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(55, 13);
+            this.label8.Size = new System.Drawing.Size(60, 13);
             this.label8.TabIndex = 39;
             this.label8.Text = "Маршрут:";
             // 
@@ -169,7 +169,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(10, 154);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(51, 13);
+            this.label7.Size = new System.Drawing.Size(53, 13);
             this.label7.TabIndex = 38;
             this.label7.Text = "Автобус:";
             // 
@@ -178,7 +178,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(10, 126);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(62, 13);
+            this.label5.Size = new System.Drawing.Size(65, 13);
             this.label5.TabIndex = 37;
             this.label5.Text = "Стаж: [лет]";
             // 
@@ -187,7 +187,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(10, 99);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 13);
+            this.label4.Size = new System.Drawing.Size(39, 13);
             this.label4.TabIndex = 36;
             this.label4.Text = "Класс:";
             // 
@@ -196,7 +196,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(10, 71);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 13);
+            this.label3.Size = new System.Drawing.Size(58, 13);
             this.label3.TabIndex = 35;
             this.label3.Text = "Отчество:";
             // 
@@ -239,28 +239,28 @@
             this.ExpInput.Location = new System.Drawing.Point(112, 123);
             this.ExpInput.Mask = "00";
             this.ExpInput.Name = "ExpInput";
-            this.ExpInput.Size = new System.Drawing.Size(305, 20);
+            this.ExpInput.Size = new System.Drawing.Size(305, 22);
             this.ExpInput.TabIndex = 30;
             // 
             // PatronymicInput
             // 
             this.PatronymicInput.Location = new System.Drawing.Point(112, 68);
             this.PatronymicInput.Name = "PatronymicInput";
-            this.PatronymicInput.Size = new System.Drawing.Size(305, 20);
+            this.PatronymicInput.Size = new System.Drawing.Size(305, 22);
             this.PatronymicInput.TabIndex = 29;
             // 
             // NameInput
             // 
             this.NameInput.Location = new System.Drawing.Point(112, 40);
             this.NameInput.Name = "NameInput";
-            this.NameInput.Size = new System.Drawing.Size(305, 20);
+            this.NameInput.Size = new System.Drawing.Size(305, 22);
             this.NameInput.TabIndex = 28;
             // 
             // LastNameInput
             // 
             this.LastNameInput.Location = new System.Drawing.Point(112, 12);
             this.LastNameInput.Name = "LastNameInput";
-            this.LastNameInput.Size = new System.Drawing.Size(305, 20);
+            this.LastNameInput.Size = new System.Drawing.Size(305, 22);
             this.LastNameInput.TabIndex = 27;
             // 
             // GradeInput
@@ -280,7 +280,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 314);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(434, 318);
             this.Controls.Add(this.closeBtn);
             this.Controls.Add(this.saveDriverBtn);
             this.Controls.Add(this.label9);
@@ -310,8 +311,9 @@
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(450, 353);
             this.Name = "EditDriver";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "EditDriver";
+            this.Text = "Редактировать водителя";
             this.Load += new System.EventHandler(this.EditDriver_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
