@@ -11,20 +11,26 @@ namespace bus_depot.Forms {
         readonly DataGridView grid;
         readonly MongoTools database;
         readonly string collectionName;
+
+
         public ReportForm(MongoTools database, DataGridView grid, string collectionName) {
             this.grid = grid;
             this.database = database;
             this.collectionName = collectionName;
             InitializeComponent();
         }
+
+
         private string getHtmlTable(DataGridView grid) {
             string htmlTable = "<table cellpadding='5' cellspacing='0'>";
+
             htmlTable += "<tr class='table__header'>";
             foreach (DataGridViewColumn column in grid.Columns) {
                 if (grid.Columns[0] == column) continue; // skip ID column
                 htmlTable += $"<th>{column.HeaderText}</th>";
             }
             htmlTable += "</tr>";
+
             int iterator = 0;
             foreach (DataGridViewRow row in grid.Rows) {
                 string className = iterator % 2 == 0 ? "light" : "dark";
@@ -37,8 +43,11 @@ namespace bus_depot.Forms {
                 iterator++;
             }
             htmlTable += "</table>";
+
             return htmlTable;
         }
+
+
         private string getHtmlData(MongoTools database, string collectionName) {
             string htmlData = "";
 
@@ -126,6 +135,8 @@ namespace bus_depot.Forms {
             }
             return htmlData;
         }
+
+
         private string getReportType(string collectionName) {
             string type = "";
             if (collectionName == "drivers")
@@ -136,6 +147,8 @@ namespace bus_depot.Forms {
                 type = "Маршруты";
             return type;
         }
+
+
         private void ReportForm_Load(object sender, EventArgs e) {
             string templatePath = "../../HtmlTemplates/report.html";
             var template = new HtmlTemplate(templatePath);
@@ -146,6 +159,8 @@ namespace bus_depot.Forms {
             });
             webBrowser.DocumentText = output;
         }
+
+        
         private void printBtn_Click(object sender, EventArgs e) {
             webBrowser.ShowPrintDialog();
         }

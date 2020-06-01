@@ -10,6 +10,8 @@ namespace bus_depot {
     public partial class MainForm : Form {
         MongoTools database;
         private string collectionName;
+
+
         private void ShowRoutes() {
             ShowBusesBtn.ForeColor = Color.Black;
             ShowBusesBtn.BackColor = Color.White;
@@ -56,6 +58,8 @@ namespace bus_depot {
                 Table.Rows.Add(row);
             }
         }
+
+
         private void ShowBuses() {
             ShowBusesBtn.ForeColor = Color.White;
             ShowBusesBtn.BackColor = Color.Black;
@@ -96,6 +100,7 @@ namespace bus_depot {
                 Table.Rows.Add(row);
             }
         }
+
 
         private void ShowDrivers() {
             ShowBusesBtn.ForeColor = Color.Black;
@@ -148,83 +153,105 @@ namespace bus_depot {
                 Table.Rows.Add(row);
             }
         }
+
+
         public MainForm(MongoTools database) {
             this.database = database;
+
             InitializeComponent();
+
             if (!MongoTools.isAdmin) {
                 AddNewElementBtn.Visible = false;
                 deleteSelectedBtn.Visible = false;
                 editSelectBtn.Visible = false;
             }
+
+            // Some style
             this.Table.RowsDefaultCellStyle.BackColor = Color.Gainsboro;
             this.Table.AlternatingRowsDefaultCellStyle.BackColor = Color.Snow;
             this.Table.ColumnHeadersDefaultCellStyle.BackColor = Color.White;
             this.Table.EnableHeadersVisualStyles = false;
-
         }
+
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e) {
             Application.Exit();
         }
 
+
         private void MainForm_Load(object sender, EventArgs e) {
             ShowBuses();
         }
 
+        // ====== Switch categories ===========
+
         private void ShowBusesBtn_Click(object sender, EventArgs e) {
             ShowBuses();
         }
-
         private void ShowRoutesBtn_Click(object sender, EventArgs e) {
             ShowRoutes();
         }
-
         private void ShowDriversBtn_Click(object sender, EventArgs e) {
             ShowDrivers();
         }
+
+        // =====================================
 
         private void ExitBtn_Click(object sender, EventArgs e) {
             Application.Exit();
         }
 
+
         private void deleteSelectedBtn_Click(object sender, EventArgs e) {
             DialogResult dialogResult = MessageBox.Show("Удалить выделенный элемент?", "Удаление", MessageBoxButtons.YesNo);
+
             if (dialogResult == DialogResult.Yes) {
                 string str_id = Table.SelectedRows[0].Cells[0].Value.ToString();
                 ObjectId id = ObjectId.Parse(str_id);
+
                 if (collectionName == "buses") {
                     database.DeleteDocument<Bus>(collectionName, id);
+
                     ShowBuses();
                 } else if (collectionName == "routes") {
                     database.DeleteDocument<Route>(collectionName, id);
+
                     ShowRoutes();
                 } else if (collectionName == "drivers") {
                     database.DeleteDocument<Driver>(collectionName, id);
+
                     ShowDrivers();
                 }
+
                 MessageBox.Show("Элемент удален");
             }
         }
+
 
         private void ReloginBtn_Click(object sender, EventArgs e) {
             Application.Restart();
         }
 
+
         private void AddNewElementBtn_Click(object sender, EventArgs e) {
             if (collectionName == "buses") {
                 AddBus form = new AddBus(database);
                 form.ShowDialog();
+
                 ShowBuses();
             } else if (collectionName == "routes") {
                 AddRoute form = new AddRoute(database);
                 form.ShowDialog();
+
                 ShowRoutes();
             } else if (collectionName == "drivers") {
                 AddDriver form = new AddDriver(database);
                 form.ShowDialog();
+
                 ShowDrivers();
             }
         }
+
 
         private void editSelectBtn_Click(object sender, EventArgs e) {
             string str_id = Table.SelectedRows[0].Cells[0].Value.ToString();
@@ -232,17 +259,21 @@ namespace bus_depot {
             if (collectionName == "buses") {
                 EditBus form = new EditBus(database, collectionName, id);
                 form.ShowDialog();
+
                 ShowBuses();
             } else if (collectionName == "routes") {
                 EditRoute form = new EditRoute(database, collectionName, id);
                 form.ShowDialog();
+
                 ShowRoutes();
             } else if (collectionName == "drivers") {
                 EditDriver form = new EditDriver(database, collectionName, id);
                 form.ShowDialog();
+
                 ShowDrivers();
             }
         }
+
 
         private void showReportBtn_Click(object sender, EventArgs e) {
             ReportForm form = new ReportForm(database, Table, collectionName);
