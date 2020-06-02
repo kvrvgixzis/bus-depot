@@ -8,8 +8,6 @@ namespace bus_depot {
         private IMongoDatabase db;
         public static bool isConnect = false;
         public static bool isAdmin = false;
-
-
         public MongoTools(string connectionString, string databaseName) {
             //Create new database connection
             var client = new MongoClient(connectionString);
@@ -20,7 +18,6 @@ namespace bus_depot {
                 isConnect = false;
             }
         }
-
         /// <summary>
         /// Insert new document into collection
         /// </summary>
@@ -31,7 +28,6 @@ namespace bus_depot {
             var collection = db.GetCollection<T>(collectionName);
             collection.InsertOne(document);
         }
-
         /// <summary>
         /// Load all documents in collection
         /// </summary>
@@ -42,7 +38,6 @@ namespace bus_depot {
             var collection = db.GetCollection<T>(collectionName);
             return collection.Find(new BsonDocument()).ToList();
         }
-
         /// <summary>
         /// Load document by Id
         /// </summary>
@@ -55,7 +50,6 @@ namespace bus_depot {
             var filter = Builders<T>.Filter.Eq("Id", id);
             return collection.Find(filter).First();
         }
-
         /// <summary>
         /// Update document
         /// </summary>
