@@ -175,18 +175,21 @@
 ### Интерфейс:
 - Логин:
 
-![login_screen](images/login_screen.jpg)
-![wrong_login_screen](images/wrong_login_screen.jpg)
+![login_screen](images/login_screen.png)
+![wrong_login_screen](images/wrong_login_screen.png)
 - Главный экран:
 
-![main_screen](images/main_screen_1.jpg)
-![main_screen](images/main_screen.jpg)
-![main_screen](images/main_screen_2.jpg)
+![main_screen](images/main_screen_1.png)
+![main_screen](images/main_screen.png)
+![main_screen](images/main_screen_2.png)
 - Добавление:
 
 ![add_route_screen](images/add_route_screen.jpg)
 ![add_bus_screen](images/add_bus_screen.jpg)
 ![add_driver_screen](images/add_driver_screen.jpg)
+- Отчет:
+![кузщке](images/report.png)
+
 
 ### Функции:
 **Корректировка коллекций:**
