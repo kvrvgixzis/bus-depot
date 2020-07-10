@@ -179,7 +179,9 @@
 ![wrong_login_screen](images/wrong_login_screen.jpg)
 - Главный экран:
 
+![main_screen](images/main_screen_1.jpg)
 ![main_screen](images/main_screen.jpg)
+![main_screen](images/main_screen_2.jpg)
 - Добавление:
 
 ![add_route_screen](images/add_route_screen.jpg)
